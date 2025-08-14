@@ -13,6 +13,8 @@
             --cor-escura: #504B43;
             --cor-clara: #F8FAF9;
             --cor-branca: #FFFFFF;
+            --sombra: 0 4px 6px rgba(0,0,0,0.1);
+            --transicao: all 0.3s ease;
         }
 
         * {
@@ -29,6 +31,7 @@
             animation: fadeIn 0.5s ease-out;
         }
 
+        /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -60,9 +63,20 @@
             60% { transform: translateY(-4px); }
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .container { 
@@ -78,7 +92,7 @@
             color: white;
             padding: 30px 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             margin-bottom: 30px;
             border-radius: 15px;
             animation: slideInDown 0.7s ease-out;
@@ -112,7 +126,7 @@
             background: var(--cor-branca);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             margin-bottom: 30px;
             text-align: center;
             animation: slideInUp 0.6s ease-out 0.2s both;
@@ -127,7 +141,7 @@
             cursor: pointer;
             font-size: 16px;
             margin: 10px;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             font-weight: 600;
             position: relative;
             overflow: hidden;
@@ -159,17 +173,23 @@
             animation: pulse 2s infinite;
         }
 
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         /* Seções */
         .section {
             background: var(--cor-branca);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             margin-bottom: 30px;
             display: none;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.5s ease;
+            transition: var(--transicao);
         }
 
         .section.active {
@@ -204,7 +224,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--cor-escura);
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .form-group input,
@@ -215,7 +235,7 @@
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .form-group input:focus,
@@ -238,7 +258,7 @@
             font-size: 14px;
             font-weight: 600;
             margin: 5px;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             position: relative;
             overflow: hidden;
         }
@@ -277,26 +297,11 @@
             transform: none;
         }
 
-        .btn-success {
-            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria) 100%);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-        }
-
-        .btn-warning {
-            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
-        }
-
-        .btn-info {
-            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria) 100%);
-        }
-
-        .btn-sm {
-            padding: 8px 15px;
-            font-size: 12px;
-        }
+        .btn-success { background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria) 100%); }
+        .btn-danger { background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
+        .btn-warning { background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); }
+        .btn-info { background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria) 100%); }
+        .btn-sm { padding: 8px 15px; font-size: 12px; }
 
         /* Competências */
         .competencia-card {
@@ -305,7 +310,7 @@
             border-radius: 15px;
             margin: 20px 0;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             animation: slideInUp 0.6s ease-out;
         }
 
@@ -338,7 +343,7 @@
         .fator-item {
             padding: 20px;
             border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             animation: slideInLeft 0.5s ease-out;
         }
 
@@ -351,7 +356,7 @@
             margin-bottom: 15px;
             font-weight: 500;
             color: var(--cor-escura);
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .rating-container {
@@ -374,7 +379,7 @@
             cursor: pointer;
             padding: 10px;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .rating-option:hover {
@@ -386,7 +391,7 @@
             margin-bottom: 5px;
             transform: scale(1.2);
             accent-color: var(--cor-primaria);
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .rating-option input[type="radio"]:checked {
@@ -404,7 +409,7 @@
             background: var(--cor-branca);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             margin: 20px 0;
             animation: slideInUp 0.6s ease-out;
         }
@@ -443,7 +448,7 @@
             text-align: center;
             font-weight: 600;
             color: var(--cor-escura);
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         /* Resultado */
@@ -457,18 +462,12 @@
             display: none;
             opacity: 0;
             transform: scale(0.8);
-            transition: all 0.5s ease;
+            transition: var(--transicao);
         }
 
         .resultado-card.show {
             display: block;
             animation: bounceIn 0.8s ease-out forwards;
-        }
-
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
         }
 
         .pontuacao-display {
@@ -496,7 +495,7 @@
             overflow-x: auto;
             margin: 20px 0;
             border-radius: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             animation: slideInUp 0.6s ease-out;
         }
 
@@ -511,7 +510,7 @@
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .data-table th {
@@ -524,7 +523,7 @@
         }
 
         .data-table tbody tr {
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             animation: slideInLeft 0.4s ease-out;
         }
 
@@ -538,10 +537,10 @@
             background: var(--cor-branca);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
             margin: 20px 0;
             animation: slideInUp 0.6s ease-out;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .info-card:hover {
@@ -562,7 +561,7 @@
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
             animation: slideInUp 0.6s ease-out;
             cursor: pointer;
         }
@@ -576,12 +575,28 @@
             font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 10px;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .stat-label {
             font-size: 1em;
             opacity: 0.9;
+        }
+
+        /* Filtros */
+        .filters-card {
+            background: #f8faf9;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         /* Alertas */
@@ -591,7 +606,7 @@
             margin: 20px 0;
             border-left: 5px solid;
             animation: slideInLeft 0.5s ease-out;
-            transition: all 0.3s ease;
+            transition: var(--transicao);
         }
 
         .alert:hover {
@@ -622,23 +637,23 @@
             color: var(--cor-escura);
         }
 
-        .badge {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-out;
         }
 
-        .badge:hover {
-            transform: scale(1.05);
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--cor-primaria);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
         }
-
-        .badge-success { background: var(--cor-secundaria); color: white; }
-        .badge-primary { background: var(--cor-primaria); color: white; }
-        .badge-warning { background: #ffc107; color: #212529; }
-        .badge-danger { background: #dc3545; color: white; }
-        .badge-secondary { background: var(--cor-neutra); color: white; }
 
         /* Modal */
         .modal {
@@ -667,6 +682,86 @@
             animation: slideInUp 0.4s ease-out;
         }
 
+        /* Login de Acesso */
+        .login-card {
+            background: var(--cor-branca);
+            border: 2px solid var(--cor-primaria);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        .login-title {
+            color: var(--cor-primaria);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            transition: var(--transicao);
+        }
+
+        .login-input:focus {
+            border-color: var(--cor-primaria);
+            outline: none;
+            box-shadow: 0 0 15px rgba(125, 186, 132, 0.3);
+            transform: scale(1.02);
+        }
+
+        .access-info {
+            background: #f8faf9;
+            border: 1px solid var(--cor-secundaria);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            animation: slideInUp 0.6s ease-out 0.3s both;
+        }
+
+        /* Status de Acesso */
+        .access-status {
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-acento) 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        /* Badge para classificações */
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: var(--transicao);
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+        }
+
+        .badge-success { background: var(--cor-secundaria); color: white; }
+        .badge-primary { background: var(--cor-primaria); color: white; }
+        .badge-warning { background: #ffc107; color: #212529; }
+        .badge-danger { background: #dc3545; color: white; }
+        .badge-secondary { background: var(--cor-neutra); color: white; }
+
         /* Responsivo */
         @media (max-width: 768px) {
             .container {
@@ -693,6 +788,10 @@
 
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -730,8 +829,14 @@
         <nav class="nav-menu">
             <button class="nav-btn active" onclick="showSection('home')">🏠 Home</button>
             <button class="nav-btn" onclick="showSection('avaliacao')">📝 Nova Avaliação</button>
-            <button class="nav-btn" onclick="showSection('historico')">📋 Histórico</button>
+            <button class="nav-btn" id="btnHistorico" onclick="verificarAcessoHistorico()">📋 Histórico</button>
             <button class="nav-btn" onclick="showSection('relatorios')">📊 Relatórios</button>
+            <button class="nav-btn" id="btnConfiguracoes" onclick="verificarAcessoConfiguracoes()">⚙️ Configurações</button>
+            
+            <!-- Status da Conexão Online -->
+            <div style="display: inline-block; margin-left: 20px; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 12px;">
+                <span id="statusConexao">🔍 Verificando...</span>
+            </div>
         </nav>
 
         <!-- Seção Home -->
@@ -759,7 +864,7 @@
 
             <div class="info-card">
                 <h3>📋 Sobre o Sistema</h3>
-                <p>Sistema completo para avaliação de desempenho e potencial de liderança, baseado em 6 competências principais e 31 fatores específicos.</p>
+                <p>Este sistema é uma ferramenta completa para avaliação de desempenho e potencial de liderança, baseado em 6 competências principais e 31 fatores específicos.</p>
                 
                 <h4 style="margin-top: 20px;">🎯 Competências Avaliadas:</h4>
                 <ul style="margin: 15px 0; padding-left: 30px;">
@@ -779,10 +884,14 @@
                     <li><strong>PRECISA MELHORAR</strong> - 1.0 a 2.4 pontos</li>
                 </ul>
 
-                <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <h4>🌐 Sistema Público</h4>
-                    <p>Este sistema está hospedado no GitHub Pages e todos os usuários veem os mesmos dados. As avaliações são salvas localmente no seu navegador.</p>
-                </div>
+                <h4>💾 Funcionalidades:</h4>
+                <ul style="margin: 15px 0; padding-left: 30px;">
+                    <li><strong>Persistência:</strong> Dados salvos permanentemente no navegador</li>
+                    <li><strong>Sincronização:</strong> Dados compartilhados entre dispositivos</li>
+                    <li><strong>Relatórios:</strong> Análises detalhadas e exportação</li>
+                    <li><strong>Histórico:</strong> Acompanhamento de evolução</li>
+                    <li><strong>Importação:</strong> Upload de dados via CSV/Excel</li>
+                </ul>
             </div>
         </section>
 
@@ -795,47 +904,53 @@
                 <h3>👤 Dados Pessoais</h3>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="matriculaAvaliado">Matrícula do Avaliado</label>
-                        <input type="text" id="matriculaAvaliado" placeholder="Digite a matrícula...">
+                        <label for="matriculaAvaliado">Matrícula do Avaliado *</label>
+                        <input type="text" id="matriculaAvaliado" required placeholder="Digite a matrícula...">
                     </div>
                     <div class="form-group">
                         <label for="nomeAvaliado">Nome do Avaliado *</label>
-                        <input type="text" id="nomeAvaliado" required placeholder="Digite o nome completo...">
+                        <input type="text" id="nomeAvaliado" required placeholder="Nome completo...">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="funcaoAvaliado">Função do Avaliado *</label>
-                        <input type="text" id="funcaoAvaliado" required placeholder="Digite a função...">
+                        <input type="text" id="funcaoAvaliado" required placeholder="Cargo/função...">
                     </div>
                     <div class="form-group">
                         <label for="filial">Filial *</label>
-                        <select id="filial" required>
-                            <option value="">Selecione a filial...</option>
-                            <option value="743">743 - MS</option>
-                            <option value="264">264 - SC</option>
-                            <option value="753">753 - MT</option>
-                            <option value="364">364 - DF</option>
-                            <option value="713">713 - SP</option>
-                            <option value="468">468 - MT</option>
-                            <option value="892">892 - SP</option>
-                            <option value="723">723 - SP</option>
-                            <option value="230">230 - SP</option>
-                            <option value="773">773 - RS</option>
-                            <option value="473">473 - MT</option>
-                            <option value="167">167 - MS</option>
-                            <option value="20">20 - AGP</option>
-                        </select>
+                        <input type="text" id="filial" required placeholder="Código da filial...">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="regional">Regional</label>
-                        <input type="text" id="regional" readonly style="background: #f0f0f0;">
+                        <input type="text" id="regional" placeholder="Estado/região...">
+                    </div>
+                    <div class="form-group">
+                        <!-- Campo vazio para manter o grid alinhado -->
+                    </div>
+                </div>
+                
+                <hr style="margin: 30px 0; border: 1px solid #e0e0e0;">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="matriculaGestor">Matrícula do Gestor *</label>
+                        <input type="text" id="matriculaGestor" required placeholder="Digite a matrícula do gestor...">
                     </div>
                     <div class="form-group">
                         <label for="nomeGestor">Nome do Gestor *</label>
-                        <input type="text" id="nomeGestor" required placeholder="Digite o nome do gestor...">
+                        <input type="text" id="nomeGestor" required placeholder="Nome completo do gestor...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="funcaoGestor">Função do Gestor</label>
+                        <input type="text" id="funcaoGestor" placeholder="Cargo/função do gestor...">
+                    </div>
+                    <div class="form-group">
+                        <!-- Campo vazio para manter o grid alinhado -->
                     </div>
                 </div>
             </div>
@@ -886,10 +1001,247 @@
                 <button class="btn btn-warning" onclick="gerarRelatorio()" id="btnRelatorio" disabled>📄 Gerar Relatório</button>
                 <button class="btn" onclick="limparFormulario()">🗑️ Limpar Formulário</button>
             </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Processando...</p>
+            </div>
+        </section>
+
+        <!-- Seção de Login para Configurações -->
+        <section id="loginConfiguracoes" class="section">
+            <h2>⚙️ Acesso às Configurações</h2>
+            
+            <div class="login-card">
+                <h3 class="login-title">🔒 Digite a Senha de Configuração</h3>
+                
+                <div class="form-group">
+                    <input type="password" id="senhaConfiguracoes" class="login-input" placeholder="Digite a senha..." onkeypress="verificarEnterConfig(event)">
+                </div>
+                
+                <button class="btn btn-success" onclick="validarSenhaConfiguracoes()">🔓 Acessar Configurações</button>
+                <button class="btn" onclick="showSection('home')">❌ Cancelar</button>
+                
+                <div class="access-info">
+                    <h4>ℹ️ Informações de Acesso</h4>
+                    <p><strong>Área Restrita:</strong></p>
+                    <ul style="text-align: left; margin: 15px 0;">
+                        <li>🔒 Acesso apenas para administradores</li>
+                        <li>⚙️ Configuração de colaboradores e gestores</li>
+                        <li>📋 Importação de dados via planilha</li>
+                        <li>🌐 Configuração de sincronização online</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Configurações -->
+        <section id="configuracoes" class="section">
+            <div id="configStatus" class="access-status" style="display: none;">
+                <!-- Status será preenchido dinamicamente -->
+            </div>
+
+            <h2>⚙️ Configurações do Sistema</h2>
+
+            <!-- Estatísticas das Configurações -->
+            <div class="stats-grid">
+                <div class="stat-card" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
+                    <div class="stat-number" id="totalColaboradores">0</div>
+                    <div class="stat-label">Colaboradores Cadastrados</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);">
+                    <div class="stat-number" id="totalGestoresConfig">0</div>
+                    <div class="stat-label">Gestores Cadastrados</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: #212529;">
+                    <div class="stat-number" id="ultimaImportacao">Nunca</div>
+                    <div class="stat-label">Última Importação</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #6f42c1 0%, #59359a 100%);">
+                    <div class="stat-number" id="statusSistema">Ativo</div>
+                    <div class="stat-label">Status do Sistema</div>
+                </div>
+            </div>
+
+            <!-- Importação de Colaboradores -->
+            <div class="info-card">
+                <h3>👥 Importar Colaboradores</h3>
+                <p>Faça upload de uma planilha com os dados dos colaboradores. <strong>Formato requerido: Matricula;Nome;Funcao;Filial;Regional</strong></p>
+                
+                <div class="form-group">
+                    <label for="arquivoColaboradores">Arquivo de Colaboradores (CSV ou Excel)</label>
+                    <input type="file" id="arquivoColaboradores" accept=".csv,.xlsx,.xls" style="width: 100%; padding: 12px; border: 2px dashed var(--cor-primaria); border-radius: 8px; background: var(--cor-clara);">
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn-info" onclick="importarColaboradores()">📋 Importar Colaboradores</button>
+                    <button class="btn btn-warning" onclick="baixarModeloColaboradores()">📥 Baixar Modelo</button>
+                    <button class="btn btn-danger" onclick="limparColaboradores()">🗑️ Limpar Dados</button>
+                </div>
+
+                <div id="previewColaboradores" style="display: none;">
+                    <h4>📋 Preview dos Dados:</h4>
+                    <div class="table-container" style="max-height: 200px; overflow-y: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Nome</th>
+                                    <th>Função</th>
+                                    <th>Filial</th>
+                                    <th>Regional</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewColaboradoresBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Importação de Gestores -->
+            <div class="info-card">
+                <h3>👔 Importar Gestores</h3>
+                <p>Faça upload de uma planilha com os dados dos gestores. <strong>Formato requerido: Matricula;Nome;Funcao;Filial;Regional</strong></p>
+                
+                <div class="form-group">
+                    <label for="arquivoGestores">Arquivo de Gestores (CSV ou Excel)</label>
+                    <input type="file" id="arquivoGestores" accept=".csv,.xlsx,.xls" style="width: 100%; padding: 12px; border: 2px dashed var(--cor-primaria); border-radius: 8px; background: var(--cor-clara);">
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn-info" onclick="importarGestores()">👔 Importar Gestores</button>
+                    <button class="btn btn-warning" onclick="baixarModeloGestores()">📥 Baixar Modelo</button>
+                    <button class="btn btn-danger" onclick="limparGestores()">🗑️ Limpar Dados</button>
+                </div>
+
+                <div id="previewGestores" style="display: none;">
+                    <h4>📋 Preview dos Dados:</h4>
+                    <div class="table-container" style="max-height: 200px; overflow-y: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Nome</th>
+                                    <th>Função</th>
+                                    <th>Filial</th>
+                                    <th>Regional</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewGestoresBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configurações Online e Sincronização -->
+            <div class="info-card">
+                <h3>🌐 Sincronização Online</h3>
+                <p>Configure a sincronização automática entre diferentes computadores e dispositivos.</p>
+                
+                <!-- Status da Sincronização -->
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--cor-primaria);">
+                    <h4>📊 Status da Sincronização</h4>
+                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center; margin: 10px 0;">
+                        <span><strong>Conexão:</strong></span>
+                        <span id="statusConexaoDetalhado">🔍 Verificando...</span>
+                        
+                        <span><strong>Empresa:</strong></span>
+                        <span id="empresaConfigurada">❌ Não configurada</span>
+                        
+                        <span><strong>Última Sync:</strong></span>
+                        <span id="ultimaSincronizacao">❌ Nunca</span>
+                        
+                        <span><strong>Modo:</strong></span>
+                        <span id="modoOperacao">📱 Local</span>
+                    </div>
+                </div>
+
+                <!-- Configuração da Empresa -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>🏢 Configurar Empresa/Organização</label>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <input type="text" id="inputEmpresaId" placeholder="Ex: EMPRESA_ABC_2025" style="flex: 1;">
+                            <button class="btn btn-info" onclick="configurarEmpresaManual()">🏢 Configurar</button>
+                        </div>
+                        <small style="color: #666; margin-top: 5px; display: block;">
+                            ℹ️ Este ID será usado para sincronizar dados entre diferentes computadores da mesma empresa.
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Controles de Sincronização -->
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn-success" onclick="sincronizarDadosManual()" id="btnSincronizar">🔄 Sincronizar Agora</button>
+                    <button class="btn btn-warning" onclick="resetarConfiguracaoOnline()">🗑️ Resetar Configuração</button>
+                    <button class="btn btn-info" onclick="testarConexaoOnline()">🔍 Testar Conexão</button>
+                </div>
+
+                <!-- Logs de Sincronização -->
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4>📋 Log de Sincronização</h4>
+                    <div id="logSincronizacao" style="max-height: 150px; overflow-y: auto; font-family: monospace; font-size: 12px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <div style="color: #666;">Sistema iniciando... aguarde logs de sincronização.</div>
+                    </div>
+                    <button class="btn btn-sm" onclick="limparLogSync()" style="margin-top: 10px;">🗑️ Limpar Log</button>
+                </div>
+            </div>
+
+            <!-- Configurações Avançadas -->
+            <div class="info-card">
+                <h3>🔧 Configurações Avançadas</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Backup dos Dados</label>
+                        <button class="btn btn-success" onclick="exportarBackupCompleto()">💾 Exportar Backup Completo</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Limpar Sistema</label>
+                        <button class="btn btn-danger" onclick="resetarSistema()">⚠️ Resetar Sistema</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ações -->
+            <div style="text-align: center; margin: 30px 0;">
+                <button class="btn btn-warning" onclick="logoutConfiguracoes()">🚪 Sair das Configurações</button>
+            </div>
+        </section>
+
+        <!-- Seção de Login para Histórico -->
+        <section id="loginHistorico" class="section">
+            <h2>🔐 Acesso ao Histórico</h2>
+            
+            <div class="login-card">
+                <h3 class="login-title">🔒 Digite a Senha de Acesso</h3>
+                
+                <div class="form-group">
+                    <input type="password" id="senhaAcesso" class="login-input" placeholder="Digite a senha..." onkeypress="verificarEnter(event)">
+                </div>
+                
+                <button class="btn btn-success" onclick="validarSenhaHistorico()">🔓 Acessar Histórico</button>
+                <button class="btn" onclick="showSection('home')">❌ Cancelar</button>
+                
+                <div class="access-info">
+                    <h4>ℹ️ Informações de Acesso</h4>
+                    <p><strong>Controle de Acesso:</strong></p>
+                    <ul style="text-align: left; margin: 15px 0;">
+                        <li>🔑 Configure suas próprias senhas de acesso</li>
+                        <li>🔒 Controle quem pode ver os dados</li>
+                        <li>👥 Diferentes níveis de permissão</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Seção Histórico -->
         <section id="historico" class="section">
+            <div id="accessStatus" class="access-status" style="display: none;">
+                <!-- Status será preenchido dinamicamente -->
+            </div>
+
             <h2>📋 Histórico de Avaliações</h2>
 
             <!-- Estatísticas -->
@@ -912,6 +1264,44 @@
                 </div>
             </div>
 
+            <!-- Filtros -->
+            <div class="filters-card">
+                <h3>🔍 Filtros</h3>
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="filtroNome">Nome do Avaliado</label>
+                        <input type="text" id="filtroNome" placeholder="Digite o nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filtroGestor">Gestor</label>
+                        <input type="text" id="filtroGestor" placeholder="Digite o nome do gestor...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filtroClassificacao">Classificação</label>
+                        <select id="filtroClassificacao">
+                            <option value="">Todas</option>
+                            <option value="EXCELENTE">EXCELENTE</option>
+                            <option value="BOM">BOM</option>
+                            <option value="REGULAR">REGULAR</option>
+                            <option value="PRECISA MELHORAR">PRECISA MELHORAR</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filtroDataInicio">Data Início</label>
+                        <input type="date" id="filtroDataInicio">
+                    </div>
+                    <div class="form-group">
+                        <label for="filtroDataFim">Data Fim</label>
+                        <input type="date" id="filtroDataFim">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn" onclick="aplicarFiltros()">🔍 Filtrar</button>
+                    <button class="btn" onclick="limparFiltros()">🗑️ Limpar Filtros</button>
+                    <button class="btn btn-danger" onclick="logout()">🚪 Sair do Histórico</button>
+                </div>
+            </div>
+
             <!-- Tabela de Histórico -->
             <div class="table-container">
                 <table class="data-table">
@@ -920,16 +1310,18 @@
                             <th>Data</th>
                             <th>Avaliado</th>
                             <th>Função</th>
+                            <th>Matrícula</th>
                             <th>Gestor</th>
                             <th>Filial</th>
                             <th>Pontuação</th>
                             <th>Classificação</th>
+                            <th>Evolução</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody id="historicoTableBody">
                         <tr>
-                            <td colspan="8" style="text-align: center; padding: 30px;">
+                            <td colspan="10" style="text-align: center; padding: 30px;">
                                 📭 Nenhuma avaliação encontrada
                             </td>
                         </tr>
@@ -941,6 +1333,22 @@
         <!-- Seção Relatórios -->
         <section id="relatorios" class="section">
             <h2>📊 Relatórios e Análises</h2>
+
+            <!-- Filtros para Relatórios -->
+            <div class="filters-card">
+                <h3>🔍 Filtros para Relatórios</h3>
+                <div class="filters-grid">
+                    <div class="form-group">
+                        <label for="filtroRelatorioFilial">Filtrar por Filial</label>
+                        <select id="filtroRelatorioFilial" onchange="aplicarFiltrosRelatorio()">
+                            <option value="">Todas as filiais</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn" onclick="limparFiltrosRelatorio()">🗑️ Limpar Filtros</button>
+                </div>
+            </div>
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -975,6 +1383,13 @@
                 </div>
             </div>
 
+            <div class="info-card">
+                <h3>👔 Análise por Função</h3>
+                <div id="analiseFuncoes">
+                    <p style="text-align: center; color: #666; padding: 20px;">📊 Execute algumas avaliações para ver a análise</p>
+                </div>
+            </div>
+
             <div style="text-align: center; margin: 30px 0;">
                 <button class="btn btn-info" onclick="gerarRelatorioCompleto()">📄 Gerar Relatório Completo</button>
                 <button class="btn btn-warning" onclick="exportarDados()">📥 Exportar Dados</button>
@@ -992,1031 +1407,23 @@
         </div>
     </div>
 
-    <!-- Créditos do Desenvolvedor -->
+    <!-- Footer -->
     <footer style="background: var(--cor-primaria); color: white; text-align: center; padding: 15px; margin-top: 50px; animation: slideInUp 0.6s ease-out;">
         <div class="container">
             <p style="margin: 2px 0; font-size: 11px; opacity: 0.7;">
-                Desenvolvido por Juliano Patrick | julianocorrea@bateforte.com.br | Sistema de Avaliação de Desempenho v2.1 © 2025
+                Sistema de Avaliação de Desempenho v2.0 © 2025 - Open Source
             </p>
         </div>
     </footer>
 
-    <script>
-        // =====================================================
-        // CONFIGURAÇÕES E DADOS
-        // =====================================================
-
-        const FILIAIS_REGIONAIS = {
-            '743': 'MS', '264': 'SC', '753': 'MT', '364': 'DF',
-            '713': 'SP', '468': 'MT', '892': 'SP', '723': 'SP',
-            '230': 'SP', '773': 'RS', '473': 'MT', '167': 'MS', '20': 'AGP'
-        };
-
-        const COMPETENCIAS = [
-            {
-                nome: 'COMUNICAÇÃO E INFLUÊNCIA',
-                fatores: [
-                    'Tem clareza, é empático(a) e inclusivo(a) na sua comunicação.',
-                    'Possui habilidades em comunicar temas críticos, transmitindo confiança ao time.',
-                    'É influenciador(a) e inspira seu time e a rede de relacionamento pelo exemplo.',
-                    'Respeita as opiniões divergentes, escuta de maneira aberta.',
-                    'Cria um ambiente de segurança e confiança mútua.'
-                ]
-            },
-            {
-                nome: 'DISCIPLINA DE EXECUÇÃO',
-                fatores: [
-                    'Garante planejamento e execução com eficiência dentro dos prazos.',
-                    'Constrói regras e processos e busca eliminar burocracias desnecessárias.',
-                    'Assume responsabilidade, cumpre normas e procedimentos.',
-                    'Estimula o time para que esteja comprometido com prazos e entregas.',
-                    'Garante níveis excelentes de qualidade nas entregas.'
-                ]
-            },
-            {
-                nome: 'FOCO EM RESULTADOS',
-                fatores: [
-                    'Possui consistência nas entregas.',
-                    'Tem flexibilidade para liderar diferentes frentes.',
-                    'Elabora e cumpre planos de ações para o atingimento das metas.',
-                    'Conhece o negócio e acompanha resultados através de dados.',
-                    'Estimula o time para possuírem visão crítica e trazerem soluções.'
-                ]
-            },
-            {
-                nome: 'FOCO NO CLIENTE/TUTOR',
-                fatores: [
-                    'Entende, prioriza e antecipa as necessidades dos clientes.',
-                    'Constrói alianças com clientes, pares, áreas parceiras.',
-                    'Implementa novas soluções para atingir expectativas do cliente.',
-                    'Direciona o time para conhecer as necessidades dos clientes.',
-                    'Desenvolve ações efetivas e de sucesso para os clientes.'
-                ]
-            },
-            {
-                nome: 'LIDERANÇA E GESTÃO DE PESSOAS',
-                fatores: [
-                    'Age com clareza na distribuição dos papéis e responsabilidades.',
-                    'Sabe identificar desafios compatíveis com a capacidade de cada um.',
-                    'Estimula e conduz o time para que alcance/supere as metas.',
-                    'Direciona o time com clareza para as atividades.',
-                    'Orienta, dá feedbacks efetivos e acompanha evoluções.',
-                    'Possui preocupação genuína com as pessoas e desenvolve liderados.'
-                ]
-            },
-            {
-                nome: 'POSTURA DE DONO',
-                fatores: [
-                    'Possui senso de urgência e sabe direcionar o time.',
-                    'Assume responsabilidade e não terceiriza para outras áreas.',
-                    'É exemplo e estimula o time a ser inconformado com entregas.',
-                    'É atento às tendências de mercado e busca aplicá-las.',
-                    'É atento e gerencia os desperdícios e custos.'
-                ]
-            }
-        ];
-
-        // Dados do sistema
-        let avaliacoes = JSON.parse(localStorage.getItem('avaliacoes_gg') || '[]');
-        let avaliacaoAtual = null;
-
-        // =====================================================
-        // FUNÇÕES DE ANIMAÇÃO
-        // =====================================================
-
-        function animarNumero(elementId, valorFinal, duracao = 1000) {
-            const elemento = document.getElementById(elementId);
-            if (!elemento) return;
-
-            const valorInicial = parseFloat(elemento.textContent) || 0;
-            const inicio = performance.now();
-
-            function animar(tempoAtual) {
-                const decorrido = tempoAtual - inicio;
-                const progresso = Math.min(decorrido / duracao, 1);
-                
-                const progressoSuave = 1 - Math.pow(1 - progresso, 3);
-                const valorAtual = valorInicial + (valorFinal - valorInicial) * progressoSuave;
-                
-                if (elementId.includes('media') || elementId.includes('Media')) {
-                    elemento.textContent = valorAtual.toFixed(2);
-                } else {
-                    elemento.textContent = Math.round(valorAtual);
-                }
-
-                if (progresso < 1) {
-                    requestAnimationFrame(animar);
-                }
-            }
-
-            requestAnimationFrame(animar);
-        }
-
-        // =====================================================
-        // FUNÇÕES DE NAVEGAÇÃO
-        // =====================================================
-
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            document.getElementById(sectionId).classList.add('active');
-            
-            const botoes = document.querySelectorAll('.nav-btn');
-            botoes.forEach(btn => {
-                if (btn.onclick && btn.onclick.toString().includes(sectionId)) {
-                    btn.classList.add('active');
-                }
-            });
-
-            switch(sectionId) {
-                case 'home':
-                    atualizarEstatisticasHome();
-                    break;
-                case 'avaliacao':
-                    inicializarFormularioAvaliacao();
-                    break;
-                case 'historico':
-                    atualizarHistorico();
-                    break;
-                case 'relatorios':
-                    atualizarRelatorios();
-                    break;
-            }
-        }
-
-        // =====================================================
-        // FUNÇÕES DO FORMULÁRIO DE AVALIAÇÃO
-        // =====================================================
-
-        function inicializarFormularioAvaliacao() {
-            criarFormularioCompetencias();
-            atualizarProgresso();
-            configurarEventos();
-        }
-
-        function criarFormularioCompetencias() {
-            const container = document.getElementById('competenciasContainer');
-            let html = '';
-            let fatorIndex = 0;
-
-            COMPETENCIAS.forEach((competencia, compIndex) => {
-                html += '<div class="competencia-card">';
-                html += '<div class="competencia-header">' + competencia.nome + '</div>';
-
-                competencia.fatores.forEach((fator, index) => {
-                    html += '<div class="fator-item">';
-                    html += '<div class="fator-texto">' + fator + '</div>';
-                    html += '<div class="rating-container">';
-                    html += '<span class="rating-label">Inadequado</span>';
-                    
-                    for(let i = 1; i <= 5; i++) {
-                        html += '<label class="rating-option">';
-                        html += '<input type="radio" name="fator_' + fatorIndex + '" value="' + i + '" onchange="atualizarProgresso()">';
-                        html += '<span>' + i + '</span>';
-                        html += '</label>';
-                    }
-                    
-                    html += '<span class="rating-label">Excelente</span>';
-                    html += '</div>';
-                    html += '</div>';
-                    fatorIndex++;
-                });
-
-                html += '</div>';
-            });
-
-            container.innerHTML = html;
-        }
-
-        function configurarEventos() {
-            // Atualizar regional quando filial mudar
-            document.getElementById('filial').addEventListener('change', function() {
-                const filial = this.value;
-                const regional = FILIAIS_REGIONAIS[filial] || '';
-                document.getElementById('regional').value = regional;
-            });
-        }
-
-        function atualizarProgresso() {
-            const totalFatores = 31;
-            const fatoresAvaliados = document.querySelectorAll('input[type="radio"]:checked').length;
-            const porcentagem = (fatoresAvaliados / totalFatores) * 100;
-            
-            document.getElementById('progressFill').style.width = porcentagem + '%';
-            document.getElementById('progressText').textContent = fatoresAvaliados + ' de ' + totalFatores + ' fatores avaliados';
-            
-            return fatoresAvaliados;
-        }
-
-        function calcularResultado() {
-            const fatoresAvaliados = atualizarProgresso();
-            
-            if (fatoresAvaliados === 0) {
-                mostrarAlerta('❌ Avalie pelo menos um fator antes de calcular!', 'danger');
-                return;
-            }
-
-            const radios = document.querySelectorAll('input[type="radio"]:checked');
-            let somaNotas = 0;
-            
-            radios.forEach(radio => {
-                somaNotas += parseInt(radio.value);
-            });
-
-            const pontuacao = fatoresAvaliados > 0 ? (somaNotas / fatoresAvaliados) : 0;
-            let classificacao = '';
-            
-            if (pontuacao >= 4.5) {
-                classificacao = 'EXCELENTE 🌟';
-            } else if (pontuacao >= 3.5) {
-                classificacao = 'BOM 👍';
-            } else if (pontuacao >= 2.5) {
-                classificacao = 'REGULAR 📈';
-            } else {
-                classificacao = 'PRECISA MELHORAR 📚';
-            }
-
-            document.getElementById('pontuacaoDisplay').textContent = pontuacao.toFixed(2) + '/5.00';
-            document.getElementById('classificacaoDisplay').textContent = classificacao;
-
-            const laudoResumo = gerarLaudoResumo(pontuacao, classificacao);
-            document.getElementById('laudoResumo').innerHTML = laudoResumo;
-
-            document.getElementById('resultadoCard').classList.add('show');
-
-            document.getElementById('btnSalvar').disabled = fatoresAvaliados < 15;
-            document.getElementById('btnRelatorio').disabled = fatoresAvaliados < 15;
-
-            avaliacaoAtual = {
-                pontuacao: pontuacao,
-                classificacao: classificacao.replace(/[🌟👍📈📚]/g, '').trim(),
-                fatoresAvaliados: fatoresAvaliados,
-                respostas: coletarRespostas()
-            };
-
-            if (fatoresAvaliados < 15) {
-                mostrarAlerta('⚠️ Avalie pelo menos 15 fatores para poder salvar a avaliação completa.', 'warning');
-            }
-        }
-
-        function coletarRespostas() {
-            const respostas = {};
-            const radios = document.querySelectorAll('input[type="radio"]:checked');
-            
-            radios.forEach(radio => {
-                respostas[radio.name] = radio.value;
-            });
-
-            return respostas;
-        }
-
-        function gerarLaudoResumo(pontuacao, classificacao) {
-            let resumo = '';
-            
-            if (pontuacao >= 4.5) {
-                resumo = '<strong style="color: var(--cor-primaria);">🎯 EXCELENTE DESEMPENHO!</strong><br>';
-                resumo += 'O(a) avaliado(a) demonstra competências excepcionais em liderança. ';
-                resumo += 'Recomenda-se aproveitar seu potencial em projetos estratégicos e como mentor(a) de outros líderes.';
-            } else if (pontuacao >= 3.5) {
-                resumo = '<strong style="color: var(--cor-primaria);">👍 BOM DESEMPENHO!</strong><br>';
-                resumo += 'O(a) avaliado(a) apresenta desempenho sólido com oportunidades específicas de desenvolvimento. ';
-                resumo += 'Com investimento direcionado, pode alcançar nível de excelência.';
-            } else if (pontuacao >= 2.5) {
-                resumo = '<strong style="color: #ffc107;">📈 DESEMPENHO REGULAR</strong><br>';
-                resumo += 'É necessário um plano de desenvolvimento estruturado. ';
-                resumo += 'Recomenda-se coaching individual e acompanhamento próximo para evolução das competências.';
-            } else {
-                resumo = '<strong style="color: #dc3545;">📚 PRECISA MELHORAR</strong><br>';
-                resumo += 'Necessária intervenção imediata com programa intensivo de desenvolvimento. ';
-                resumo += 'O sucesso depende de comprometimento total e suporte organizacional.';
-            }
-
-            return resumo;
-        }
-
-        function salvarAvaliacao() {
-            if (!avaliacaoAtual) {
-                mostrarAlerta('❌ Calcule o resultado primeiro!', 'danger');
-                return;
-            }
-
-            const nomeAvaliado = document.getElementById('nomeAvaliado').value;
-            const nomeGestor = document.getElementById('nomeGestor').value;
-            const filial = document.getElementById('filial').value;
-            const funcaoAvaliado = document.getElementById('funcaoAvaliado').value;
-
-            if (!nomeAvaliado || !nomeGestor || !filial || !funcaoAvaliado) {
-                mostrarAlerta('❌ Preencha os campos obrigatórios: Nome do Avaliado, Nome do Gestor, Filial e Função!', 'danger');
-                return;
-            }
-
-            const avaliacao = {
-                id: 'AV' + Date.now(),
-                data: new Date(),
-                nomeAvaliado: nomeAvaliado,
-                matricula: document.getElementById('matriculaAvaliado').value,
-                funcaoAvaliado: funcaoAvaliado,
-                nomeGestor: nomeGestor,
-                filial: filial,
-                regional: document.getElementById('regional').value,
-                pontuacao: avaliacaoAtual.pontuacao.toFixed(2),
-                classificacao: avaliacaoAtual.classificacao,
-                pontosFortes: document.getElementById('pontosFortes').value,
-                oportunidades: document.getElementById('oportunidades').value,
-                comentarios: document.getElementById('comentarios').value,
-                respostas: avaliacaoAtual.respostas
-            };
-
-            avaliacoes.push(avaliacao);
-            
-            try {
-                localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
-                mostrarAlerta('✅ Avaliação salva com sucesso! ID: ' + avaliacao.id, 'success');
-                
-                document.getElementById('btnSalvar').textContent = '✅ Salvo!';
-                setTimeout(() => {
-                    document.getElementById('btnSalvar').textContent = '💾 Salvar Avaliação';
-                }, 2000);
-            } catch (error) {
-                mostrarAlerta('❌ Erro ao salvar avaliação! Tente novamente.', 'danger');
-            }
-        }
-
-        function limparFormulario() {
-            if (confirm('🗑️ Deseja realmente limpar todos os dados do formulário?')) {
-                document.getElementById('nomeAvaliado').value = '';
-                document.getElementById('matriculaAvaliado').value = '';
-                document.getElementById('funcaoAvaliado').value = '';
-                document.getElementById('nomeGestor').value = '';
-                document.getElementById('filial').value = '';
-                document.getElementById('regional').value = '';
-                document.getElementById('pontosFortes').value = '';
-                document.getElementById('oportunidades').value = '';
-                document.getElementById('comentarios').value = '';
-
-                document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                    radio.checked = false;
-                });
-
-                document.getElementById('resultadoCard').classList.remove('show');
-                document.getElementById('btnSalvar').disabled = true;
-                document.getElementById('btnRelatorio').disabled = true;
-                
-                atualizarProgresso();
-                avaliacaoAtual = null;
-
-                mostrarAlerta('🗑️ Formulário limpo com sucesso!', 'info');
-            }
-        }
-
-        // =====================================================
-        // FUNÇÕES DE HISTÓRICO
-        // =====================================================
-
-        function atualizarHistorico() {
-            atualizarEstatisticasHistorico();
-            atualizarTabelaHistorico();
-        }
-
-        function atualizarEstatisticasHistorico() {
-            const total = avaliacoes.length;
-            let somaNotas = 0;
-            let excelentes = 0;
-            let precisamMelhorar = 0;
-
-            avaliacoes.forEach(av => {
-                const nota = parseFloat(av.pontuacao);
-                somaNotas += nota;
-                
-                if (av.classificacao === 'EXCELENTE') excelentes++;
-                if (av.classificacao === 'PRECISA MELHORAR') precisamMelhorar++;
-            });
-
-            const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
-
-            animarNumero('totalAvaliacoes', total);
-            animarNumero('mediaGeral', parseFloat(media));
-            animarNumero('excelentes', excelentes);
-            animarNumero('precisamMelhorar', precisamMelhorar);
-        }
-
-        function atualizarTabelaHistorico() {
-            const tbody = document.getElementById('historicoTableBody');
-            
-            if (avaliacoes.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 30px;">📭 Nenhuma avaliação encontrada</td></tr>';
-                return;
-            }
-
-            let html = '';
-            avaliacoes.forEach(av => {
-                const data = new Date(av.data).toLocaleDateString('pt-BR');
-                const classeClass = obterClasseClassificacao(av.classificacao);
-                
-                html += '<tr>';
-                html += '<td>' + data + '</td>';
-                html += '<td>' + av.nomeAvaliado + '</td>';
-                html += '<td>' + (av.funcaoAvaliado || '-') + '</td>';
-                html += '<td>' + av.nomeGestor + '</td>';
-                html += '<td>' + av.filial + ' - ' + av.regional + '</td>';
-                html += '<td><strong>' + av.pontuacao + '</strong></td>';
-                html += '<td><span class="badge badge-' + classeClass + '">' + av.classificacao + '</span></td>';
-                html += '<td>';
-                html += '<button class="btn btn-sm btn-info" onclick="verDetalhes(\'' + av.id + '\')">👁️ Ver</button> ';
-                html += '<button class="btn btn-sm btn-warning" onclick="gerarRelatorioIndividual(\'' + av.id + '\')">📄 PDF</button> ';
-                html += '<button class="btn btn-sm btn-danger" onclick="excluirAvaliacao(\'' + av.id + '\')">🗑️</button>';
-                html += '</td>';
-                html += '</tr>';
-            });
-
-            tbody.innerHTML = html;
-        }
-
-        function obterClasseClassificacao(classificacao) {
-            switch(classificacao.toUpperCase()) {
-                case 'EXCELENTE': return 'success';
-                case 'BOM': return 'primary';
-                case 'REGULAR': return 'warning';
-                case 'PRECISA MELHORAR': return 'danger';
-                default: return 'secondary';
-            }
-        }
-
-        function verDetalhes(id) {
-            const avaliacao = avaliacoes.find(av => av.id === id);
-            if (!avaliacao) return;
-
-            const conteudo = 
-                '<h3>📋 Detalhes da Avaliação</h3>' +
-                '<p><strong>ID:</strong> ' + avaliacao.id + '</p>' +
-                '<p><strong>Data:</strong> ' + new Date(avaliacao.data).toLocaleString('pt-BR') + '</p>' +
-                '<p><strong>Avaliado:</strong> ' + avaliacao.nomeAvaliado + '</p>' +
-                '<p><strong>Matrícula:</strong> ' + (avaliacao.matricula || 'Não informada') + '</p>' +
-                '<p><strong>Função:</strong> ' + (avaliacao.funcaoAvaliado || 'Não informada') + '</p>' +
-                '<p><strong>Gestor:</strong> ' + avaliacao.nomeGestor + '</p>' +
-                '<p><strong>Filial:</strong> ' + avaliacao.filial + ' - ' + avaliacao.regional + '</p>' +
-                '<p><strong>Pontuação:</strong> ' + avaliacao.pontuacao + '/5.00</p>' +
-                '<p><strong>Classificação:</strong> ' + avaliacao.classificacao + '</p>' +
-                (avaliacao.pontosFortes ? '<p><strong>Pontos Fortes:</strong> ' + avaliacao.pontosFortes + '</p>' : '') +
-                (avaliacao.oportunidades ? '<p><strong>Oportunidades:</strong> ' + avaliacao.oportunidades + '</p>' : '') +
-                (avaliacao.comentarios ? '<p><strong>Comentários:</strong> ' + avaliacao.comentarios + '</p>' : '');
-
-            mostrarModal(conteudo);
-        }
-
-        function excluirAvaliacao(id) {
-            if (confirm('⚠️ ATENÇÃO: Esta ação não pode ser desfeita.\n\nDeseja realmente excluir esta avaliação?')) {
-                avaliacoes = avaliacoes.filter(av => av.id !== id);
-                
-                try {
-                    localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
-                    atualizarHistorico();
-                    mostrarAlerta('✅ Avaliação excluída com sucesso!', 'success');
-                } catch (error) {
-                    mostrarAlerta('❌ Erro ao salvar após exclusão!', 'danger');
-                }
-            }
-        }
-
-        // =====================================================
-        // FUNÇÕES DE RELATÓRIOS
-        // =====================================================
-
-        function atualizarRelatorios() {
-            atualizarEstatisticasRelatorios();
-            gerarAnaliseCompetencias();
-            gerarAnaliseFiliais();
-        }
-
-        function atualizarEstatisticasRelatorios() {
-            const total = avaliacoes.length;
-            let somaNotas = 0;
-            let gestoresUnicos = new Set();
-
-            avaliacoes.forEach(av => {
-                somaNotas += parseFloat(av.pontuacao);
-                gestoresUnicos.add(av.nomeGestor);
-            });
-
-            const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
-
-            animarNumero('totalAvaliacoesRel', total);
-            animarNumero('mediaGeralRel', parseFloat(media));
-            animarNumero('colaboradoresMelhorando', Math.floor(total * 0.3));
-            animarNumero('totalGestores', gestoresUnicos.size);
-        }
-
-        function gerarAnaliseCompetencias() {
-            const container = document.getElementById('analiseCompetencias');
-            
-            if (avaliacoes.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">📊 Execute algumas avaliações para ver a análise</p>';
-                return;
-            }
-
-            let html = '<div class="table-container">';
-            html += '<table class="data-table">';
-            html += '<thead><tr><th>Competência</th><th>Média</th><th>Status</th></tr></thead>';
-            html += '<tbody>';
-
-            COMPETENCIAS.forEach(comp => {
-                const mediaComp = (Math.random() * 2 + 3).toFixed(2);
-                let status = '';
-                let cor = '';
-
-                if (mediaComp >= 4.5) {
-                    status = 'Excelente';
-                    cor = 'var(--cor-secundaria)';
-                } else if (mediaComp >= 3.5) {
-                    status = 'Bom';
-                    cor = 'var(--cor-primaria)';
-                } else if (mediaComp >= 2.5) {
-                    status = 'Regular';
-                    cor = '#ffc107';
-                } else {
-                    status = 'Precisa Melhorar';
-                    cor = '#dc3545';
-                }
-
-                html += '<tr>';
-                html += '<td>' + comp.nome + '</td>';
-                html += '<td><strong>' + mediaComp + '/5.00</strong></td>';
-                html += '<td><span style="color: ' + cor + '; font-weight: bold;">' + status + '</span></td>';
-                html += '</tr>';
-            });
-
-            html += '</tbody></table></div>';
-            container.innerHTML = html;
-        }
-
-        function gerarAnaliseFiliais() {
-            const container = document.getElementById('analiseFiliais');
-            
-            if (avaliacoes.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">📊 Execute algumas avaliações para ver a análise</p>';
-                return;
-            }
-
-            const dadosPorFilial = {};
-            avaliacoes.forEach(av => {
-                if (!dadosPorFilial[av.filial]) {
-                    dadosPorFilial[av.filial] = {
-                        count: 0,
-                        soma: 0,
-                        regional: av.regional
-                    };
-                }
-                dadosPorFilial[av.filial].count++;
-                dadosPorFilial[av.filial].soma += parseFloat(av.pontuacao);
-            });
-
-            let html = '<div class="table-container">';
-            html += '<table class="data-table">';
-            html += '<thead><tr><th>Filial</th><th>Regional</th><th>Avaliações</th><th>Média</th></tr></thead>';
-            html += '<tbody>';
-
-            Object.keys(dadosPorFilial).forEach(filial => {
-                const dados = dadosPorFilial[filial];
-                const media = (dados.soma / dados.count).toFixed(2);
-
-                html += '<tr>';
-                html += '<td>' + filial + '</td>';
-                html += '<td>' + dados.regional + '</td>';
-                html += '<td>' + dados.count + '</td>';
-                html += '<td><strong>' + media + '/5.00</strong></td>';
-                html += '</tr>';
-            });
-
-            html += '</tbody></table></div>';
-            container.innerHTML = html;
-        }
-
-        function gerarRelatorioCompleto() {
-            const relatorioHTML = criarRelatorioHTML();
-            
-            const novaJanela = window.open('', '_blank');
-            novaJanela.document.write(relatorioHTML);
-            novaJanela.document.close();
-            
-            mostrarAlerta('📄 Relatório completo gerado com sucesso!', 'success');
-        }
-
-        function exportarDados() {
-            if (avaliacoes.length === 0) {
-                mostrarAlerta('❌ Nenhuma avaliação para exportar!', 'danger');
-                return;
-            }
-
-            let csv = 'Data,Avaliado,Matricula,Funcao,Gestor,Filial,Regional,Pontuacao,Classificacao\n';
-            
-            avaliacoes.forEach(av => {
-                const linha = [
-                    new Date(av.data).toLocaleDateString('pt-BR'),
-                    av.nomeAvaliado,
-                    av.matricula || '',
-                    av.funcaoAvaliado || '',
-                    av.nomeGestor,
-                    av.filial,
-                    av.regional,
-                    av.pontuacao,
-                    av.classificacao
-                ].join(',');
-                csv += linha + '\n';
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'avaliacoes_gg_' + new Date().toISOString().split('T')[0] + '.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-
-            mostrarAlerta('📥 Dados exportados com sucesso!', 'success');
-        }
-
-        function criarRelatorioHTML() {
-            const agora = new Date().toLocaleString('pt-BR');
-            const total = avaliacoes.length;
-            const media = total > 0 ? (avaliacoes.reduce((acc, av) => acc + parseFloat(av.pontuacao), 0) / total).toFixed(2) : '0.00';
-
-            return `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Relatório Completo - Sistema de Avaliação de Desempenho</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            padding: 20px; 
-            color: #504B43;
-        }
-        .header { 
-            text-align: center; 
-            margin-bottom: 30px; 
-            background: linear-gradient(135deg, #8FD694 0%, #77AD78 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .stats { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; 
-            margin: 20px 0; 
-        }
-        .stat-card { 
-            background: #F8FAF9; 
-            padding: 15px; 
-            border-radius: 8px; 
-            text-align: center;
-            border: 2px solid #8FD694;
-        }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            margin: 20px 0; 
-        }
-        th, td { 
-            padding: 10px; 
-            border: 1px solid #ddd; 
-            text-align: left; 
-        }
-        th { 
-            background: #1e441e; 
-            color: white; 
-        }
-        @media print { .no-print { display: none; } }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🎯 RELATÓRIO COMPLETO - SISTEMA DE AVALIAÇÃO DE DESEMPENHO</h1>
-        <p>Relatório gerado em: ${agora}</p>
-    </div>
-
-    <div class="stats">
-        <div class="stat-card">
-            <h3>${total}</h3>
-            <p>Total de Avaliações</p>
-        </div>
-        <div class="stat-card">
-            <h3>${media}</h3>
-            <p>Média Geral</p>
-        </div>
-        <div class="stat-card">
-            <h3>${avaliacoes.filter(av => av.classificacao === 'EXCELENTE').length}</h3>
-            <p>Excelentes</p>
-        </div>
-        <div class="stat-card">
-            <h3>${new Set(avaliacoes.map(av => av.nomeGestor)).size}</h3>
-            <p>Gestores Únicos</p>
-        </div>
-    </div>
-
-    <h2>📋 Histórico Completo de Avaliações</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Data</th>
-                <th>Avaliado</th>
-                <th>Gestor</th>
-                <th>Filial</th>
-                <th>Pontuação</th>
-                <th>Classificação</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${avaliacoes.map(av => `
-                <tr>
-                    <td>${new Date(av.data).toLocaleDateString('pt-BR')}</td>
-                    <td>${av.nomeAvaliado}</td>
-                    <td>${av.nomeGestor}</td>
-                    <td>${av.filial} - ${av.regional}</td>
-                    <td>${av.pontuacao}/5.00</td>
-                    <td>${av.classificacao}</td>
-                </tr>
-            `).join('')}
-        </tbody>
-    </table>
-
-    <div class="no-print" style="text-align: center; margin: 30px 0;">
-        <button onclick="window.print()" style="padding: 10px 20px; background: #1e441e; color: white; border: none; border-radius: 5px; cursor: pointer;">🖨️ Imprimir</button>
-        <button onclick="window.close()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">❌ Fechar</button>
-    </div>
-</body>
-</html>
-            `;
-        }
-
-        function gerarRelatorioIndividual(id) {
-            const avaliacao = avaliacoes.find(av => av.id === id);
-            if (!avaliacao) return;
-
-            const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
-            
-            const novaJanela = window.open('', '_blank');
-            novaJanela.document.write(relatorioHTML);
-            novaJanela.document.close();
-            
-            mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
-        }
-
-        function criarRelatorioIndividualHTML(avaliacao) {
-            const agora = new Date().toLocaleString('pt-BR');
-            
-            return `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Relatório Individual - ${avaliacao.nomeAvaliado}</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            padding: 20px; 
-            line-height: 1.6; 
-            color: #504B43;
-        }
-        .header { 
-            text-align: center; 
-            margin-bottom: 30px; 
-            padding: 20px; 
-            background: linear-gradient(135deg, #8FD694 0%, #77AD78 100%); 
-            border-radius: 10px;
-            color: white;
-        }
-        .info-section { 
-            margin: 20px 0; 
-            padding: 15px; 
-            border: 1px solid #8FD694; 
-            border-radius: 8px; 
-            background: #F8FAF9;
-        }
-        .resultado { 
-            text-align: center; 
-            padding: 20px; 
-            background: linear-gradient(135deg, #8FD694 0%, #1e441e 100%); 
-            border-radius: 10px; 
-            margin: 20px 0;
-            color: white;
-        }
-        @media print { .no-print { display: none; } }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🎯 RELATÓRIO DE AVALIAÇÃO INDIVIDUAL</h1>
-        <h2>${avaliacao.nomeAvaliado}</h2>
-        <p>Relatório gerado em: ${agora}</p>
-    </div>
-
-    <div class="info-section">
-        <h3>📋 Dados da Avaliação</h3>
-        <p><strong>Nome:</strong> ${avaliacao.nomeAvaliado}</p>
-        <p><strong>Matrícula:</strong> ${avaliacao.matricula || 'Não informada'}</p>
-        <p><strong>Função:</strong> ${avaliacao.funcaoAvaliado || 'Não informada'}</p>
-        <p><strong>Gestor:</strong> ${avaliacao.nomeGestor || 'Não informado'}</p>
-        <p><strong>Filial:</strong> ${avaliacao.filial || 'Não informada'} - ${avaliacao.regional || 'Não informada'}</p>
-        <p><strong>Data da Avaliação:</strong> ${new Date(avaliacao.data).toLocaleDateString('pt-BR')}</p>
-    </div>
-
-    <div class="resultado">
-        <h3>📊 RESULTADO DA AVALIAÇÃO</h3>
-        <h2>PONTUAÇÃO: ${avaliacao.pontuacao}/5.00</h2>
-        <h2>CLASSIFICAÇÃO: ${avaliacao.classificacao}</h2>
-    </div>
-
-    ${avaliacao.pontosFortes ? `
-    <div class="info-section">
-        <h3>💪 Pontos Fortes</h3>
-        <p>${avaliacao.pontosFortes}</p>
-    </div>
-    ` : ''}
-
-    ${avaliacao.oportunidades ? `
-    <div class="info-section">
-        <h3>📈 Oportunidades de Desenvolvimento</h3>
-        <p>${avaliacao.oportunidades}</p>
-    </div>
-    ` : ''}
-
-    ${avaliacao.comentarios ? `
-    <div class="info-section">
-        <h3>💬 Comentários Gerais</h3>
-        <p>${avaliacao.comentarios}</p>
-    </div>
-    ` : ''}
-
-    <div class="no-print" style="text-align: center; margin: 30px 0;">
-        <button onclick="window.print()" style="padding: 10px 20px; background: #1e441e; color: white; border: none; border-radius: 5px; cursor: pointer;">🖨️ Imprimir</button>
-        <button onclick="window.close()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">❌ Fechar</button>
-    </div>
-</body>
-</html>
-            `;
-        }
-
-        function gerarRelatorio() {
-            if (!avaliacaoAtual) {
-                mostrarAlerta('❌ Calcule o resultado primeiro!', 'danger');
-                return;
-            }
-
-            const avaliacao = {
-                nomeAvaliado: document.getElementById('nomeAvaliado').value,
-                matricula: document.getElementById('matriculaAvaliado').value,
-                funcaoAvaliado: document.getElementById('funcaoAvaliado').value,
-                nomeGestor: document.getElementById('nomeGestor').value,
-                filial: document.getElementById('filial').value,
-                regional: document.getElementById('regional').value,
-                pontuacao: avaliacaoAtual.pontuacao.toFixed(2),
-                classificacao: avaliacaoAtual.classificacao,
-                pontosFortes: document.getElementById('pontosFortes').value,
-                oportunidades: document.getElementById('oportunidades').value,
-                comentarios: document.getElementById('comentarios').value,
-                data: new Date()
-            };
-            
-            const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
-            
-            const novaJanela = window.open('', '_blank');
-            novaJanela.document.write(relatorioHTML);
-            novaJanela.document.close();
-            
-            mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
-        }
-
-        // =====================================================
-        // FUNÇÕES AUXILIARES
-        // =====================================================
-
-        function atualizarEstatisticasHome() {
-            const total = avaliacoes.length;
-            let somaNotas = 0;
-            let excelentes = 0;
-            let filiaisAtivas = new Set();
-
-            avaliacoes.forEach(av => {
-                somaNotas += parseFloat(av.pontuacao);
-                if (av.classificacao === 'EXCELENTE') excelentes++;
-                filiaisAtivas.add(av.filial);
-            });
-
-            const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
-
-            animarNumero('totalAvaliacoesHome', total);
-            animarNumero('mediaGeralHome', parseFloat(media));
-            animarNumero('excelentesHome', excelentes);
-            animarNumero('filiaisAtivasHome', filiaisAtivas.size);
-        }
-
-        function mostrarAlerta(mensagem, tipo) {
-            const alertasExistentes = document.querySelectorAll('.alert');
-            alertasExistentes.forEach(alerta => alerta.remove());
-
-            const alerta = document.createElement('div');
-            alerta.className = 'alert alert-' + tipo;
-            alerta.innerHTML = mensagem;
-
-            const secaoAtiva = document.querySelector('.section.active');
-            secaoAtiva.insertBefore(alerta, secaoAtiva.firstChild);
-
-            setTimeout(() => {
-                if (alerta.parentNode) {
-                    alerta.remove();
-                }
-            }, 5000);
-        }
-
-        function mostrarModal(conteudo) {
-            document.getElementById('conteudoModal').innerHTML = conteudo;
-            document.getElementById('modalDetalhes').style.display = 'block';
-        }
-
-        function fecharModal() {
-            document.getElementById('modalDetalhes').style.display = 'none';
-        }
-
-        // =====================================================
-        // INICIALIZAÇÃO DO SISTEMA
-        // =====================================================
-
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🎯 Sistema de Avaliação iniciado!');
-            atualizarEstatisticasHome();
-        });
-
-        // Fechar modal com clique fora
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('modalDetalhes');
-            if (e.target === modal) {
-                fecharModal();
-            }
-        });
-
-        // Atalhos de teclado
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                const secaoAtiva = document.querySelector('.section.active');
-                if (secaoAtiva && secaoAtiva.id === 'avaliacao') {
-                    if (!document.getElementById('btnSalvar').disabled) {
-                        salvarAvaliacao();
-                    }
-                }
-            }
-            
-            if (e.ctrlKey && e.key === 'n') {
-                e.preventDefault();
-                showSection('avaliacao');
-            }
-            
-            if (e.ctrlKey && e.key === 'h') {
-                e.preventDefault();
-                showSection('historico');
-            }
-            
-            if (e.key === 'Escape') {
-                fecharModal();
-            }
-
-            if (e.key === 'F1') {
-                e.preventDefault();
-                showSection('home');
-            }
-
-            if (e.key === 'F2') {
-                e.preventDefault();
-                showSection('relatorios');
-            }
-        });
-
-        console.log(`
-🎯 SISTEMA DE AVALIAÇÃO - VERSÃO GITHUB PAGES
-============================================
-✅ Sistema simplificado para GitHub Pages
-✅ Dados salvos localmente no navegador
-✅ Todos os usuários veem os mesmos dados
-✅ Sem necessidade de configuração online
-✅ Sistema público e acessível
-✅ Avaliações carregadas: ${avaliacoes.length}
-✅ Versão: 2.1 - GitHub Edition
-============================================
-
-💻 DESENVOLVIDO POR: Juliano Patrick
-📧 CONTATO: julianocorrea@bateforte.com.br
-
-🌐 HOSPEDADO NO GITHUB PAGES
-============================================
-        `);
-    </script>
+    <script src="js/config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/sync.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/evaluation.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/reports.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

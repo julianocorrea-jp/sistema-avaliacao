@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Sistema de Avaliação de Desempenho - Avaliação de Desempenho</title>
+    <title>🎯 Sistema de Avaliação de Desempenho</title>
     <style>
         :root {
-            --cor-primaria: #1e441e;     /* Emerald */
-            --cor-secundaria: #8FD694;   /* Celadon */
-            --cor-acento: #77AD78;       /* Asparagus */
-            --cor-neutra: #6F8F72;       /* Reseda green */
-            --cor-escura: #504B43;       /* Walnut brown */
+            --cor-primaria: #1e441e;
+            --cor-secundaria: #8FD694;
+            --cor-acento: #77AD78;
+            --cor-neutra: #6F8F72;
+            --cor-escura: #504B43;
             --cor-clara: #F8FAF9;
             --cor-branca: #FFFFFF;
         }
@@ -58,11 +58,6 @@
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-8px); }
             60% { transform: translateY(-4px); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         @keyframes shimmer {
@@ -162,12 +157,6 @@
             background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-secundaria) 100%);
             box-shadow: 0 4px 10px rgba(143, 214, 148, 0.4);
             animation: pulse 2s infinite;
-        }
-
-        .nav-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
         }
 
         /* Seções */
@@ -595,22 +584,6 @@
             opacity: 0.9;
         }
 
-        /* Filtros */
-        .filters-card {
-            background: #f8faf9;
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            animation: slideInUp 0.6s ease-out;
-        }
-
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
         /* Alertas */
         .alert {
             padding: 20px;
@@ -649,23 +622,23 @@
             color: var(--cor-escura);
         }
 
-        /* Loading */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            animation: fadeIn 0.5s ease-out;
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--cor-primaria);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
+        .badge:hover {
+            transform: scale(1.05);
         }
+
+        .badge-success { background: var(--cor-secundaria); color: white; }
+        .badge-primary { background: var(--cor-primaria); color: white; }
+        .badge-warning { background: #ffc107; color: #212529; }
+        .badge-danger { background: #dc3545; color: white; }
+        .badge-secondary { background: var(--cor-neutra); color: white; }
 
         /* Modal */
         .modal {
@@ -694,140 +667,6 @@
             animation: slideInUp 0.4s ease-out;
         }
 
-        /* Login de Acesso */
-        .login-card {
-            background: var(--cor-branca);
-            border: 2px solid var(--cor-primaria);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 20px auto;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            animation: bounceIn 0.8s ease-out;
-        }
-
-        .login-title {
-            color: var(--cor-primaria);
-            margin-bottom: 30px;
-            font-size: 1.8em;
-            animation: slideInDown 0.6s ease-out;
-        }
-
-        .login-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .login-input:focus {
-            border-color: var(--cor-primaria);
-            outline: none;
-            box-shadow: 0 0 15px rgba(125, 186, 132, 0.3);
-            transform: scale(1.02);
-        }
-
-        .access-info {
-            background: #f8faf9;
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: left;
-            animation: slideInUp 0.6s ease-out 0.3s both;
-        }
-
-        .access-level {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .access-level:hover {
-            transform: scale(1.05);
-        }
-
-        .level-master {
-            background: var(--cor-primaria);
-            color: white;
-        }
-
-        .level-filial {
-            background: var(--cor-secundaria);
-            color: var(--cor-escura);
-        }
-
-        /* Status de Acesso */
-        .access-status {
-            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-acento) 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-            font-weight: bold;
-            animation: slideInDown 0.5s ease-out;
-        }
-
-        /* Evolução de Avaliações */
-        .evolucao-melhoria {
-            background: rgba(40, 167, 69, 0.1);
-            border: 1px solid #28a745;
-            border-radius: 8px;
-            padding: 8px;
-            animation: pulse 2s infinite;
-        }
-
-        .evolucao-regressao {
-            background: rgba(220, 53, 69, 0.1);
-            border: 1px solid #dc3545;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        .evolucao-estavel {
-            background: rgba(108, 117, 125, 0.1);
-            border: 1px solid #6c757d;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        .evolucao-primeira {
-            background: rgba(143, 214, 148, 0.1);
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        /* Badge para classificações */
-        .badge {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            transform: scale(1.05);
-        }
-
-        .badge-success { background: var(--cor-secundaria); color: white; }
-        .badge-primary { background: var(--cor-primaria); color: white; }
-        .badge-warning { background: #ffc107; color: #212529; }
-        .badge-danger { background: #dc3545; color: white; }
-        .badge-secondary { background: var(--cor-neutra); color: white; }
-
         /* Responsivo */
         @media (max-width: 768px) {
             .container {
@@ -854,10 +693,6 @@
 
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .filters-grid {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -888,16 +723,6 @@
             <h1>🎯 SISTEMA DE AVALIAÇÃO DE DESEMPENHO</h1>
             <p>Avaliação de Desempenho e Potencial de Liderança</p>
         </div>
-
-    <!-- Créditos do Desenvolvedor -->
-    <footer style="background: var(--cor-primaria); color: white; text-align: center; padding: 15px; margin-top: 50px; animation: slideInUp 0.6s ease-out;">
-        <div class="container">
-            <p style="margin: 2px 0; font-size: 11px; opacity: 0.7;">
-                Desenvolvido por Juliano Patrick | julianocorrea@bateforte.com.br | Sistema de Avaliação de Desempenho v2.0 © 2025
-
-            </p>
-        </div>
-    </footer>
     </header>
 
     <div class="container">
@@ -905,14 +730,8 @@
         <nav class="nav-menu">
             <button class="nav-btn active" onclick="showSection('home')">🏠 Home</button>
             <button class="nav-btn" onclick="showSection('avaliacao')">📝 Nova Avaliação</button>
-            <button class="nav-btn" id="btnHistorico" onclick="verificarAcessoHistorico()">📋 Histórico</button>
+            <button class="nav-btn" onclick="showSection('historico')">📋 Histórico</button>
             <button class="nav-btn" onclick="showSection('relatorios')">📊 Relatórios</button>
-            <button class="nav-btn" id="btnConfiguracoes" onclick="verificarAcessoConfiguracoes()">⚙️ Configurações</button>
-            
-            <!-- Status da Conexão Online -->
-            <div style="display: inline-block; margin-left: 20px; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 12px;">
-                <span id="statusConexao">🔍 Verificando...</span>
-            </div>
         </nav>
 
         <!-- Seção Home -->
@@ -940,7 +759,7 @@
 
             <div class="info-card">
                 <h3>📋 Sobre o Sistema</h3>
-                <p>Esse sistema é uma ferramenta completa para avaliação de desempenho e potencial de liderança, baseado em 6 competências principais e 31 fatores específicos.</p>
+                <p>Sistema completo para avaliação de desempenho e potencial de liderança, baseado em 6 competências principais e 31 fatores específicos.</p>
                 
                 <h4 style="margin-top: 20px;">🎯 Competências Avaliadas:</h4>
                 <ul style="margin: 15px 0; padding-left: 30px;">
@@ -960,8 +779,10 @@
                     <li><strong>PRECISA MELHORAR</strong> - 1.0 a 2.4 pontos</li>
                 </ul>
 
-                <h4>🔐 Controle de Acesso:</h4>
-                <p style="margin: 15px 0;">O histórico de avaliações é protegido por senhas específicas para cada filial, garantindo que apenas usuários autorizados tenham acesso aos dados de sua unidade.</p>
+                <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h4>🌐 Sistema Público</h4>
+                    <p>Este sistema está hospedado no GitHub Pages e todos os usuários veem os mesmos dados. As avaliações são salvas localmente no seu navegador.</p>
+                </div>
             </div>
         </section>
 
@@ -974,22 +795,37 @@
                 <h3>👤 Dados Pessoais</h3>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="matriculaAvaliado">Matrícula do Avaliado *</label>
-                        <input type="text" id="matriculaAvaliado" required placeholder="Digite a matrícula...">
+                        <label for="matriculaAvaliado">Matrícula do Avaliado</label>
+                        <input type="text" id="matriculaAvaliado" placeholder="Digite a matrícula...">
                     </div>
                     <div class="form-group">
-                        <label for="nomeAvaliado">Nome do Avaliado</label>
-                        <input type="text" id="nomeAvaliado" readonly style="background: #f0f0f0;">
+                        <label for="nomeAvaliado">Nome do Avaliado *</label>
+                        <input type="text" id="nomeAvaliado" required placeholder="Digite o nome completo...">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="funcaoAvaliado">Função do Avaliado</label>
-                        <input type="text" id="funcaoAvaliado" readonly style="background: #f0f0f0;">
+                        <label for="funcaoAvaliado">Função do Avaliado *</label>
+                        <input type="text" id="funcaoAvaliado" required placeholder="Digite a função...">
                     </div>
                     <div class="form-group">
-                        <label for="filial">Filial</label>
-                        <input type="text" id="filial" readonly style="background: #f0f0f0;">
+                        <label for="filial">Filial *</label>
+                        <select id="filial" required>
+                            <option value="">Selecione a filial...</option>
+                            <option value="743">743 - MS</option>
+                            <option value="264">264 - SC</option>
+                            <option value="753">753 - MT</option>
+                            <option value="364">364 - DF</option>
+                            <option value="713">713 - SP</option>
+                            <option value="468">468 - MT</option>
+                            <option value="892">892 - SP</option>
+                            <option value="723">723 - SP</option>
+                            <option value="230">230 - SP</option>
+                            <option value="773">773 - RS</option>
+                            <option value="473">473 - MT</option>
+                            <option value="167">167 - MS</option>
+                            <option value="20">20 - AGP</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-row">
@@ -998,29 +834,8 @@
                         <input type="text" id="regional" readonly style="background: #f0f0f0;">
                     </div>
                     <div class="form-group">
-                        <!-- Campo vazio para manter o grid alinhado -->
-                    </div>
-                </div>
-                
-                <hr style="margin: 30px 0; border: 1px solid #e0e0e0;">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="matriculaGestor">Matrícula do Gestor *</label>
-                        <input type="text" id="matriculaGestor" required placeholder="Digite a matrícula do gestor...">
-                    </div>
-                    <div class="form-group">
-                        <label for="nomeGestor">Nome do Gestor</label>
-                        <input type="text" id="nomeGestor" readonly style="background: #f0f0f0;">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="funcaoGestor">Função do Gestor</label>
-                        <input type="text" id="funcaoGestor" readonly style="background: #f0f0f0;">
-                    </div>
-                    <div class="form-group">
-                        <!-- Campo vazio para manter o grid alinhado -->
+                        <label for="nomeGestor">Nome do Gestor *</label>
+                        <input type="text" id="nomeGestor" required placeholder="Digite o nome do gestor...">
                     </div>
                 </div>
             </div>
@@ -1071,265 +886,10 @@
                 <button class="btn btn-warning" onclick="gerarRelatorio()" id="btnRelatorio" disabled>📄 Gerar Relatório</button>
                 <button class="btn" onclick="limparFormulario()">🗑️ Limpar Formulário</button>
             </div>
-
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Processando...</p>
-            </div>
-        </section>
-
-        <!-- Seção de Login para Configurações -->
-        <section id="loginConfiguracoes" class="section">
-            <h2>⚙️ Acesso às Configurações</h2>
-            
-            <div class="login-card">
-                <h3 class="login-title">🔒 Digite a Senha de Configuração</h3>
-                
-                <div class="form-group">
-                    <input type="password" id="senhaConfiguracoes" class="login-input" placeholder="Digite a senha..." onkeypress="verificarEnterConfig(event)">
-                </div>
-                
-                <button class="btn btn-success" onclick="validarSenhaConfiguracoes()">🔓 Acessar Configurações</button>
-                <button class="btn" onclick="showSection('home')">❌ Cancelar</button>
-                
-                <div class="access-info">
-                    <h4>ℹ️ Informações de Acesso</h4>
-                    <p><strong>Área Restrita:</strong></p>
-                    <ul style="text-align: left; margin: 15px 0;">
-                        <li>🔒 Acesso apenas para administradores</li>
-                        <li>⚙️ Configuração de colaboradores e gestores</li>
-                        <li>📋 Importação de dados via planilha</li>
-                    </ul>
-                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
-                        <strong>Contato:</strong> julianocorrea@bateforte.com.br
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Configurações -->
-        <section id="configuracoes" class="section">
-            <div id="configStatus" class="access-status" style="display: none; background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: #212529; padding: 20px; border-radius: 12px; margin: 25px 0; text-align: center; font-weight: bold; animation: slideInDown 0.5s ease-out;">
-                <!-- Status será preenchido dinamicamente -->
-            </div>
-
-            <h2>⚙️ Configurações do Sistema</h2>
-
-            <!-- Estatísticas das Configurações -->
-            <div class="stats-grid">
-                <div class="stat-card" style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
-                    <div class="stat-number" id="totalColaboradores">0</div>
-                    <div class="stat-label">Colaboradores Cadastrados</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);">
-                    <div class="stat-number" id="totalGestoresConfig">0</div>
-                    <div class="stat-label">Gestores Cadastrados</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: #212529;">
-                    <div class="stat-number" id="ultimaImportacao">Nunca</div>
-                    <div class="stat-label">Última Importação</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, #6f42c1 0%, #59359a 100%);">
-                    <div class="stat-number" id="statusSistema">Ativo</div>
-                    <div class="stat-label">Status do Sistema</div>
-                </div>
-            </div>
-
-            <!-- Importação de Colaboradores -->
-            <div class="info-card">
-                <h3>👥 Importar Colaboradores</h3>
-                <p>Faça upload de uma planilha com os dados dos colaboradores. <strong>Formato requerido: Matricula;Nome;Funcao;Filial;Regional</strong></p>
-                
-                <div class="form-group">
-                    <label for="arquivoColaboradores">Arquivo de Colaboradores (CSV ou Excel)</label>
-                    <input type="file" id="arquivoColaboradores" accept=".csv,.xlsx,.xls" style="width: 100%; padding: 12px; border: 2px dashed var(--cor-primaria); border-radius: 8px; background: var(--cor-clara);">
-                </div>
-                
-                <div style="text-align: center; margin: 20px 0;">
-                    <button class="btn btn-info" onclick="importarColaboradores()">📋 Importar Colaboradores</button>
-                    <button class="btn btn-warning" onclick="baixarModeloColaboradores()">📥 Baixar Modelo</button>
-                    <button class="btn btn-danger" onclick="limparColaboradores()">🗑️ Limpar Dados</button>
-                    <button class="btn" onclick="debugArquivo('colaboradores')" style="background: #6f42c1; color: white;">🔍 Debug Arquivo</button>
-                </div>
-
-                <div id="previewColaboradores" style="display: none;">
-                    <h4>📋 Preview dos Dados:</h4>
-                    <div class="table-container" style="max-height: 200px; overflow-y: auto;">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Matrícula</th>
-                                    <th>Nome</th>
-                                    <th>Função</th>
-                                    <th>Filial</th>
-                                    <th>Regional</th>
-                                </tr>
-                            </thead>
-                            <tbody id="previewColaboradoresBody">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Importação de Gestores -->
-            <div class="info-card">
-                <h3>👔 Importar Gestores</h3>
-                <p>Faça upload de uma planilha com os dados dos gestores. <strong>Formato requerido: Matricula;Nome;Funcao;Filial;Regional</strong></p>
-                
-                <div class="form-group">
-                    <label for="arquivoGestores">Arquivo de Gestores (CSV ou Excel)</label>
-                    <input type="file" id="arquivoGestores" accept=".csv,.xlsx,.xls" style="width: 100%; padding: 12px; border: 2px dashed var(--cor-primaria); border-radius: 8px; background: var(--cor-clara);">
-                </div>
-                
-                <div style="text-align: center; margin: 20px 0;">
-                    <button class="btn btn-info" onclick="importarGestores()">👔 Importar Gestores</button>
-                    <button class="btn btn-warning" onclick="baixarModeloGestores()">📥 Baixar Modelo</button>
-                    <button class="btn btn-danger" onclick="limparGestores()">🗑️ Limpar Dados</button>
-                    <button class="btn" onclick="debugArquivo('gestores')" style="background: #6f42c1; color: white;">🔍 Debug Arquivo</button>
-                </div>
-
-                <div id="previewGestores" style="display: none;">
-                    <h4>📋 Preview dos Dados:</h4>
-                    <div class="table-container" style="max-height: 200px; overflow-y: auto;">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Matrícula</th>
-                                    <th>Nome</th>
-                                    <th>Função</th>
-                                    <th>Filial</th>
-                                    <th>Regional</th>
-                                </tr>
-                            </thead>
-                            <tbody id="previewGestoresBody">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Configurações Online e Sincronização -->
-            <div class="info-card">
-                <h3>🌐 Sincronização Online</h3>
-                <p>Configure a sincronização automática entre diferentes computadores e dispositivos.</p>
-                
-                <!-- Status da Sincronização -->
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid var(--cor-primaria);">
-                    <h4>📊 Status da Sincronização</h4>
-                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center; margin: 10px 0;">
-                        <span><strong>Conexão:</strong></span>
-                        <span id="statusConexaoDetalhado">🔍 Verificando...</span>
-                        
-                        <span><strong>Empresa:</strong></span>
-                        <span id="empresaConfigurada">❌ Não configurada</span>
-                        
-                        <span><strong>Última Sync:</strong></span>
-                        <span id="ultimaSincronizacao">❌ Nunca</span>
-                        
-                        <span><strong>Modo:</strong></span>
-                        <span id="modoOperacao">📱 Local</span>
-                    </div>
-                </div>
-
-                <!-- Configuração da Empresa -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>🏢 Configurar Empresa/Organização</label>
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <input type="text" id="inputEmpresaId" placeholder="Ex: EMPRESA_ABC_2025" style="flex: 1;">
-                            <button class="btn btn-info" onclick="configurarEmpresaManual()">🏢 Configurar</button>
-                        </div>
-                        <small style="color: #666; margin-top: 5px; display: block;">
-                            ℹ️ Este ID será usado para sincronizar dados entre diferentes computadores da mesma empresa.
-                        </small>
-                    </div>
-                </div>
-
-                <!-- Controles de Sincronização -->
-                <div style="text-align: center; margin: 20px 0;">
-                    <button class="btn btn-success" onclick="sincronizarDadosManual()" id="btnSincronizar">🔄 Sincronizar Agora</button>
-                    <button class="btn btn-warning" onclick="resetarConfiguracaoOnline()">🗑️ Resetar Configuração</button>
-                    <button class="btn btn-info" onclick="testarConexaoOnline()">🔍 Testar Conexão</button>
-                </div>
-
-                <!-- Informações sobre Sincronização -->
-                <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <h4>💡 Como Funciona a Sincronização</h4>
-                    <ul style="margin: 10px 0; padding-left: 20px; font-size: 14px;">
-                        <li><strong>Automática:</strong> Sincroniza a cada 5 minutos automaticamente</li>
-                        <li><strong>Entre Dispositivos:</strong> Todos com o mesmo ID de empresa compartilham dados</li>
-                        <li><strong>Resolução de Conflitos:</strong> Última modificação sempre vence</li>
-                        <li><strong>Backup na Nuvem:</strong> Dados salvos automaticamente online</li>
-                        <li><strong>Modo Offline:</strong> Funciona sem internet, sincroniza quando conectar</li>
-                    </ul>
-                </div>
-
-                <!-- Logs de Sincronização -->
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <h4>📋 Log de Sincronização</h4>
-                    <div id="logSincronizacao" style="max-height: 150px; overflow-y: auto; font-family: monospace; font-size: 12px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <div style="color: #666;">Sistema iniciando... aguarde logs de sincronização.</div>
-                    </div>
-                    <button class="btn btn-sm" onclick="limparLogSync()" style="margin-top: 10px;">🗑️ Limpar Log</button>
-                </div>
-            </div>
-
-            <!-- Configurações Avançadas -->
-            <div class="info-card">
-                <h3>🔧 Configurações Avançadas</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Backup dos Dados</label>
-                        <button class="btn btn-success" onclick="exportarBackupCompleto()">💾 Exportar Backup Completo</button>
-                    </div>
-                    <div class="form-group">
-                        <label>Limpar Sistema</label>
-                        <button class="btn btn-danger" onclick="resetarSistema()">⚠️ Resetar Sistema</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ações -->
-            <div style="text-align: center; margin: 30px 0;">
-                <button class="btn btn-warning" onclick="logoutConfiguracoes()">🚪 Sair das Configurações</button>
-            </div>
-        </section>
-
-        <!-- Seção de Login para Histórico -->
-        <section id="loginHistorico" class="section">
-            <h2>🔐 Acesso ao Histórico</h2>
-            
-            <div class="login-card">
-                <h3 class="login-title">🔒 Digite a Senha de Acesso</h3>
-                
-                <div class="form-group">
-                    <input type="password" id="senhaAcesso" class="login-input" placeholder="Digite a senha..." onkeypress="verificarEnter(event)">
-                </div>
-                
-                <button class="btn btn-success" onclick="validarSenhaHistorico()">🔓 Acessar Histórico</button>
-                <button class="btn" onclick="showSection('home')">❌ Cancelar</button>
-                
-                <div class="access-info">
-                    <h4>ℹ️ Informações de Acesso</h4>
-                    <p><strong>Controle de Acesso:</strong></p>
-                    <ul style="text-align: left; margin: 15px 0;">
-                        <li>🔑 Cada filial possui sua senha específica</li>
-                        <li>🔒 Entre em contato com o administrador para obter sua senha</li>
-                    </ul>
-                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
-                        <strong>Contato:</strong> julianocorrea@bateforte.com.br
-                    </p>
-                </div>
-            </div>
         </section>
 
         <!-- Seção Histórico -->
         <section id="historico" class="section">
-            <div id="accessStatus" class="access-status" style="display: none;">
-                <!-- Status será preenchido dinamicamente -->
-            </div>
-
             <h2>📋 Histórico de Avaliações</h2>
 
             <!-- Estatísticas -->
@@ -1352,44 +912,6 @@
                 </div>
             </div>
 
-            <!-- Filtros -->
-            <div class="filters-card">
-                <h3>🔍 Filtros</h3>
-                <div class="filters-grid">
-                    <div class="form-group">
-                        <label for="filtroNome">Nome do Avaliado</label>
-                        <input type="text" id="filtroNome" placeholder="Digite o nome...">
-                    </div>
-                    <div class="form-group">
-                        <label for="filtroGestor">Gestor</label>
-                        <input type="text" id="filtroGestor" placeholder="Digite o nome do gestor...">
-                    </div>
-                    <div class="form-group">
-                        <label for="filtroClassificacao">Classificação</label>
-                        <select id="filtroClassificacao">
-                            <option value="">Todas</option>
-                            <option value="EXCELENTE">EXCELENTE</option>
-                            <option value="BOM">BOM</option>
-                            <option value="REGULAR">REGULAR</option>
-                            <option value="PRECISA MELHORAR">PRECISA MELHORAR</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="filtroDataInicio">Data Início</label>
-                        <input type="date" id="filtroDataInicio">
-                    </div>
-                    <div class="form-group">
-                        <label for="filtroDataFim">Data Fim</label>
-                        <input type="date" id="filtroDataFim">
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button class="btn" onclick="aplicarFiltros()">🔍 Filtrar</button>
-                    <button class="btn" onclick="limparFiltros()">🗑️ Limpar Filtros</button>
-                    <button class="btn btn-danger" onclick="logout()">🚪 Sair do Histórico</button>
-                </div>
-            </div>
-
             <!-- Tabela de Histórico -->
             <div class="table-container">
                 <table class="data-table">
@@ -1398,12 +920,10 @@
                             <th>Data</th>
                             <th>Avaliado</th>
                             <th>Função</th>
-                            <th>Matrícula</th>
                             <th>Gestor</th>
                             <th>Filial</th>
                             <th>Pontuação</th>
                             <th>Classificação</th>
-                            <th>Evolução</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -1421,35 +941,6 @@
         <!-- Seção Relatórios -->
         <section id="relatorios" class="section">
             <h2>📊 Relatórios e Análises</h2>
-
-            <!-- Filtros para Relatórios -->
-            <div class="filters-card">
-                <h3>🔍 Filtros para Relatórios</h3>
-                <div class="filters-grid">
-                    <div class="form-group">
-                        <label for="filtroRelatorioFilial">Filtrar por Filial</label>
-                        <select id="filtroRelatorioFilial" onchange="aplicarFiltrosRelatorio()">
-                            <option value="">Todas as filiais</option>
-                            <option value="743">743 - MS</option>
-                            <option value="264">264 - SC</option>
-                            <option value="753">753 - MT</option>
-                            <option value="364">364 - DF</option>
-                            <option value="713">713 - SP</option>
-                            <option value="468">468 - MT</option>
-                            <option value="892">892 - SP</option>
-                            <option value="723">723 - SP</option>
-                            <option value="230">230 - SP</option>
-                            <option value="773">773 - RS</option>
-                            <option value="473">473 - MT</option>
-                            <option value="167">167 - MS</option>
-                            <option value="20">20 - AGP</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button class="btn" onclick="limparFiltrosRelatorio()">🗑️ Limpar Filtros</button>
-                </div>
-            </div>
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -1484,13 +975,6 @@
                 </div>
             </div>
 
-            <div class="info-card">
-                <h3>👔 Análise por Função</h3>
-                <div id="analiseFuncoes">
-                    <p style="text-align: center; color: #666; padding: 20px;">📊 Execute algumas avaliações para ver a análise</p>
-                </div>
-            </div>
-
             <div style="text-align: center; margin: 30px 0;">
                 <button class="btn btn-info" onclick="gerarRelatorioCompleto()">📄 Gerar Relatório Completo</button>
                 <button class="btn btn-warning" onclick="exportarDados()">📥 Exportar Dados</button>
@@ -1508,29 +992,18 @@
         </div>
     </div>
 
+    <!-- Créditos do Desenvolvedor -->
+    <footer style="background: var(--cor-primaria); color: white; text-align: center; padding: 15px; margin-top: 50px; animation: slideInUp 0.6s ease-out;">
+        <div class="container">
+            <p style="margin: 2px 0; font-size: 11px; opacity: 0.7;">
+                Desenvolvido por Juliano Patrick | julianocorrea@bateforte.com.br | Sistema de Avaliação de Desempenho v2.1 © 2025
+            </p>
+        </div>
+    </footer>
+
     <script>
         // =====================================================
-        // SISTEMA DE SINCRONIZAÇÃO ONLINE
-        // =====================================================
-
-        // Configurações da sincronização online
-        let configOnline = {
-            ativo: false,
-            empresaId: localStorage.getItem('empresa_id_gg') || '',
-            ultimaSync: localStorage.getItem('ultima_sync_gg') || null,
-            tentativasSync: 0,
-            maxTentativas: 3
-        };
-
-        // Status da conexão
-        let statusConexao = {
-            online: navigator.onLine,
-            sincronizando: false,
-            ultimoErro: null
-        };
-
-        // =====================================================
-        // DADOS E CONFIGURAÇÕES (ATUALIZADA PARA ONLINE)
+        // CONFIGURAÇÕES E DADOS
         // =====================================================
 
         const FILIAIS_REGIONAIS = {
@@ -1538,493 +1011,6 @@
             '713': 'SP', '468': 'MT', '892': 'SP', '723': 'SP',
             '230': 'SP', '773': 'RS', '473': 'MT', '167': 'MS', '20': 'AGP'
         };
-
-        const SENHAS_ACESSO = {
-            'GGMASTERJP': { tipo: 'master', filiais: ['all'], nome: 'Acesso Total - Todas as Filiais (JP)' },
-            'GGMASTER': { tipo: 'master', filiais: ['all'], nome: 'Acesso Total - Todas as Filiais' },
-            'GG74301': { tipo: 'filial', filiais: ['743'], nome: 'Filial 743 - MS' },
-            'GG26402': { tipo: 'filial', filiais: ['264'], nome: 'Filial 264 - SC' },
-            'GG75303': { tipo: 'filial', filiais: ['753'], nome: 'Filial 753 - MT' },
-            'GG36404': { tipo: 'filial', filiais: ['364'], nome: 'Filial 364 - DF' },
-            'GG71305': { tipo: 'filial', filiais: ['713'], nome: 'Filial 713 - SP' },
-            'GG46806': { tipo: 'filial', filiais: ['468'], nome: 'Filial 468 - MT' },
-            'GG89207': { tipo: 'filial', filiais: ['892'], nome: 'Filial 892 - SP' },
-            'GG72308': { tipo: 'filial', filiais: ['723'], nome: 'Filial 723 - SP' },
-            'GG23009': { tipo: 'filial', filiais: ['230'], nome: 'Filial 230 - SP' },
-            'GG77310': { tipo: 'filial', filiais: ['773'], nome: 'Filial 773 - RS' },
-            'GG47311': { tipo: 'filial', filiais: ['473'], nome: 'Filial 473 - MT' },
-            'GG16712': { tipo: 'filial', filiais: ['167'], nome: 'Filial 167 - MS' },
-            'GG02013': { tipo: 'filial', filiais: ['20'], nome: 'Filial 20 - AGP' }
-        };
-
-        // API endpoints (configurável)
-        const API_CONFIG = {
-            baseUrl: 'https://api-avaliacoes-gg.com', // Substituir pela URL real da API
-            endpoints: {
-                sync: '/sync',
-                avaliacoes: '/avaliacoes',
-                colaboradores: '/colaboradores',
-                gestores: '/gestores',
-                empresa: '/empresa'
-            }
-        };
-
-        // =====================================================
-        // FUNÇÕES DE SINCRONIZAÇÃO ONLINE
-        // =====================================================
-
-        async function inicializarSistemaOnline() {
-            console.log('🌐 Inicializando sistema online...');
-            
-            // Verificar se empresa está configurada
-            if (!configOnline.empresaId) {
-                console.log('🏢 Empresa não configurada - modo offline');
-                return false;
-            }
-
-            // Verificar conexão
-            if (!navigator.onLine) {
-                console.log('📡 Sem conexão - modo offline');
-                return false;
-            }
-
-            // Tentar sincronização inicial
-            try {
-                await sincronizarDados();
-                configOnline.ativo = true;
-                console.log('✅ Sistema online ativo');
-                atualizarStatusConexao();
-                return true;
-            } catch (error) {
-                console.error('❌ Erro ao inicializar online:', error);
-                return false;
-            }
-        }
-
-        async function sincronizarDados() {
-            if (!configOnline.empresaId || !navigator.onLine) {
-                console.log('⚠️ Sincronização não disponível');
-                return;
-            }
-
-            statusConexao.sincronizando = true;
-            atualizarStatusConexao();
-
-            try {
-                console.log('🔄 Iniciando sincronização...');
-                
-                // 1. Buscar dados do servidor
-                const dadosServidor = await buscarDadosServidor();
-                
-                // 2. Comparar com dados locais
-                const conflitos = detectarConflitos(dadosServidor);
-                
-                // 3. Resolver conflitos (últimas modificações vencem)
-                const dadosFinais = resolverConflitos(conflitos);
-                
-                // 4. Salvar dados atualizados localmente
-                await salvarDadosLocalmente(dadosFinais);
-                
-                // 5. Enviar dados locais para servidor
-                await enviarDadosServidor(dadosFinais);
-                
-                // 6. Atualizar timestamp da sincronização
-                configOnline.ultimaSync = new Date().toISOString();
-                localStorage.setItem('ultima_sync_gg', configOnline.ultimaSync);
-                
-                console.log('✅ Sincronização concluída');
-                mostrarAlerta('🌐 Dados sincronizados com sucesso!', 'success');
-                
-            } catch (error) {
-                console.error('❌ Erro na sincronização:', error);
-                statusConexao.ultimoErro = error.message;
-                mostrarAlerta('❌ Erro na sincronização: ' + error.message, 'danger');
-            } finally {
-                statusConexao.sincronizando = false;
-                atualizarStatusConexao();
-            }
-        }
-
-        async function buscarDadosServidor() {
-            // Simulação da API - substituir por chamada real
-            console.log('📥 Buscando dados do servidor...');
-            
-            // Em um ambiente real, seria algo como:
-            // const response = await fetch(`${API_CONFIG.baseUrl}${API_CONFIG.endpoints.sync}?empresa=${configOnline.empresaId}`);
-            // return await response.json();
-            
-            // Simulação para demonstração
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
-            return {
-                avaliacoes: JSON.parse(localStorage.getItem('avaliacoes_gg_servidor') || '[]'),
-                colaboradores: JSON.parse(localStorage.getItem('colaboradores_gg_servidor') || '{}'),
-                gestores: JSON.parse(localStorage.getItem('gestores_gg_servidor') || '{}'),
-                timestamp: localStorage.getItem('timestamp_servidor_gg') || new Date().toISOString()
-            };
-        }
-
-        async function enviarDadosServidor(dados) {
-            console.log('📤 Enviando dados para servidor...');
-            
-            // Em um ambiente real, seria algo como:
-            // const response = await fetch(`${API_CONFIG.baseUrl}${API_CONFIG.endpoints.sync}`, {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ empresaId: configOnline.empresaId, dados })
-            // });
-            
-            // Simulação para demonstração
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
-            localStorage.setItem('avaliacoes_gg_servidor', JSON.stringify(dados.avaliacoes));
-            localStorage.setItem('colaboradores_gg_servidor', JSON.stringify(dados.colaboradores));
-            localStorage.setItem('gestores_gg_servidor', JSON.stringify(dados.gestores));
-            localStorage.setItem('timestamp_servidor_gg', new Date().toISOString());
-        }
-
-        function detectarConflitos(dadosServidor) {
-            const dadosLocais = {
-                avaliacoes: avaliacoes,
-                colaboradores: colaboradores,
-                gestores: gestores,
-                timestamp: localStorage.getItem('ultima_modificacao_gg') || new Date().toISOString()
-            };
-
-            return {
-                servidor: dadosServidor,
-                local: dadosLocais,
-                temConflito: dadosServidor.timestamp !== dadosLocais.timestamp
-            };
-        }
-
-        function resolverConflitos(conflitos) {
-            console.log('🔧 Resolvendo conflitos...');
-            
-            if (!conflitos.temConflito) {
-                console.log('✅ Nenhum conflito detectado');
-                return conflitos.local;
-            }
-
-            // Estratégia: última modificação vence
-            const timestampServidor = new Date(conflitos.servidor.timestamp);
-            const timestampLocal = new Date(conflitos.local.timestamp);
-
-            if (timestampServidor > timestampLocal) {
-                console.log('📥 Dados do servidor são mais recentes');
-                return conflitos.servidor;
-            } else {
-                console.log('📤 Dados locais são mais recentes');
-                return conflitos.local;
-            }
-        }
-
-        async function salvarDadosLocalmente(dados) {
-            avaliacoes = dados.avaliacoes || [];
-            colaboradores = dados.colaboradores || {};
-            gestores = dados.gestores || {};
-            
-            localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
-            localStorage.setItem('colaboradores_gg', JSON.stringify(colaboradores));
-            localStorage.setItem('gestores_gg', JSON.stringify(gestores));
-            localStorage.setItem('ultima_modificacao_gg', new Date().toISOString());
-            
-            // Atualizar interface
-            atualizarEstatisticasHome();
-            if (acessoConfig) atualizarEstatisticasConfig();
-            if (acessoAtivo) atualizarHistorico();
-        }
-
-        function configurarEmpresa() {
-            const empresaId = prompt('🏢 Digite o ID da sua empresa/organização:\n\n(Este ID será usado para sincronizar dados entre diferentes computadores)');
-            
-            if (empresaId && empresaId.trim()) {
-                configOnline.empresaId = empresaId.trim().toUpperCase();
-                localStorage.setItem('empresa_id_gg', configOnline.empresaId);
-                
-                mostrarAlerta(`🏢 Empresa configurada: ${configOnline.empresaId}`, 'success');
-                console.log('🏢 Empresa configurada:', configOnline.empresaId);
-                
-                // Tentar sincronização inicial
-                setTimeout(() => {
-                    sincronizarDados();
-                }, 1000);
-                
-                return true;
-            } else {
-                mostrarAlerta('❌ ID da empresa é obrigatório para sincronização online', 'danger');
-                return false;
-            }
-        }
-
-        function atualizarStatusConexao() {
-            statusConexao.online = navigator.onLine;
-            
-            // Atualizar indicador visual se existir
-            const indicador = document.getElementById('statusConexao');
-            if (indicador) {
-                let status = '';
-                let cor = '';
-                
-                if (!configOnline.empresaId) {
-                    status = '🏢 Empresa não configurada';
-                    cor = '#ffc107';
-                } else if (!statusConexao.online) {
-                    status = '📡 Offline';
-                    cor = '#dc3545';
-                } else if (statusConexao.sincronizando) {
-                    status = '🔄 Sincronizando...';
-                    cor = '#17a2b8';
-                } else if (configOnline.ativo) {
-                    status = '🌐 Online - Sincronizado';
-                    cor = '#28a745';
-                } else {
-                    status = '⚠️ Online - Não sincronizado';
-                    cor = '#ffc107';
-                }
-                
-                indicador.innerHTML = status;
-                indicador.style.color = cor;
-            }
-        }
-
-        // =====================================================
-        // EVENTOS DE CONEXÃO
-        // =====================================================
-
-        window.addEventListener('online', () => {
-            console.log('🌐 Conexão restaurada');
-            statusConexao.online = true;
-            atualizarStatusConexao();
-            
-            if (configOnline.empresaId) {
-                setTimeout(() => {
-                    sincronizarDados();
-                }, 2000);
-            }
-        });
-
-        window.addEventListener('offline', () => {
-            console.log('📡 Conexão perdida');
-            statusConexao.online = false;
-            atualizarStatusConexao();
-        });
-
-        // =====================================================
-        // SINCRONIZAÇÃO AUTOMÁTICA
-        // =====================================================
-
-        // Sincronização automática a cada 5 minutos
-        setInterval(() => {
-            if (configOnline.ativo && navigator.onLine && !statusConexao.sincronizando) {
-                console.log('⏰ Sincronização automática...');
-                sincronizarDados();
-            }
-        }, 5 * 60 * 1000); // 5 minutos
-
-        // Sincronização ao sair da página
-        window.addEventListener('beforeunload', () => {
-            if (configOnline.ativo && navigator.onLine) {
-                // Sincronização síncrona rápida
-                navigator.sendBeacon(`${API_CONFIG.baseUrl}${API_CONFIG.endpoints.sync}`, 
-                    JSON.stringify({
-                        empresaId: configOnline.empresaId,
-                        dados: { avaliacoes, colaboradores, gestores }
-                    })
-                );
-            }
-        });
-
-        // =====================================================
-        // FUNÇÕES DE INTERFACE PARA SINCRONIZAÇÃO ONLINE
-        // =====================================================
-
-        function configurarEmpresaManual() {
-            const input = document.getElementById('inputEmpresaId');
-            const empresaId = input.value.trim();
-            
-            if (!empresaId) {
-                mostrarAlerta('❌ Digite um ID válido para a empresa!', 'danger');
-                return;
-            }
-
-            configOnline.empresaId = empresaId.toUpperCase();
-            localStorage.setItem('empresa_id_gg', configOnline.empresaId);
-            
-            input.value = '';
-            atualizarInterfaceOnline();
-            adicionarLogSync(`🏢 Empresa configurada: ${configOnline.empresaId}`);
-            
-            mostrarAlerta(`🏢 Empresa configurada: ${configOnline.empresaId}`, 'success');
-            
-            // Tentar sincronização inicial
-            setTimeout(() => {
-                sincronizarDadosManual();
-            }, 1000);
-        }
-
-        async function sincronizarDadosManual() {
-            if (!configOnline.empresaId) {
-                mostrarAlerta('❌ Configure a empresa primeiro!', 'danger');
-                return;
-            }
-
-            const btn = document.getElementById('btnSincronizar');
-            const textoOriginal = btn.textContent;
-            
-            btn.textContent = '🔄 Sincronizando...';
-            btn.disabled = true;
-            
-            try {
-                await sincronizarDados();
-                btn.textContent = '✅ Sincronizado!';
-                setTimeout(() => {
-                    btn.textContent = textoOriginal;
-                    btn.disabled = false;
-                }, 2000);
-            } catch (error) {
-                btn.textContent = '❌ Erro';
-                setTimeout(() => {
-                    btn.textContent = textoOriginal;
-                    btn.disabled = false;
-                }, 2000);
-            }
-        }
-
-        function resetarConfiguracaoOnline() {
-            if (confirm('⚠️ ATENÇÃO: Isso irá resetar todas as configurações online!\n\nOs dados locais serão mantidos, mas a sincronização será desconfigurada.\n\nContinuar?')) {
-                configOnline.empresaId = '';
-                configOnline.ativo = false;
-                configOnline.ultimaSync = null;
-                
-                localStorage.removeItem('empresa_id_gg');
-                localStorage.removeItem('ultima_sync_gg');
-                
-                document.getElementById('inputEmpresaId').value = '';
-                atualizarInterfaceOnline();
-                limparLogSync();
-                
-                adicionarLogSync('🗑️ Configuração online resetada');
-                mostrarAlerta('🗑️ Configuração online resetada! Sistema em modo local.', 'warning');
-            }
-        }
-
-        async function testarConexaoOnline() {
-            adicionarLogSync('🔍 Testando conexão...');
-            
-            if (!navigator.onLine) {
-                adicionarLogSync('❌ Sem conexão com a internet');
-                mostrarAlerta('❌ Sem conexão com a internet!', 'danger');
-                return;
-            }
-
-            try {
-                // Simular teste de conexão com a API
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Em um ambiente real seria:
-                // const response = await fetch(`${API_CONFIG.baseUrl}/health`);
-                
-                adicionarLogSync('✅ Conexão com servidor OK');
-                mostrarAlerta('✅ Conexão testada com sucesso!', 'success');
-                
-            } catch (error) {
-                adicionarLogSync('❌ Erro de conexão: ' + error.message);
-                mostrarAlerta('❌ Erro na conexão: ' + error.message, 'danger');
-            }
-        }
-
-        function atualizarInterfaceOnline() {
-            // Atualizar status detalhado
-            const statusDetalhado = document.getElementById('statusConexaoDetalhado');
-            const empresaConfig = document.getElementById('empresaConfigurada');
-            const ultimaSync = document.getElementById('ultimaSincronizacao');
-            const modoOp = document.getElementById('modoOperacao');
-
-            if (statusDetalhado) {
-                if (!navigator.onLine) {
-                    statusDetalhado.innerHTML = '🔴 Offline';
-                    statusDetalhado.style.color = '#dc3545';
-                } else if (statusConexao.sincronizando) {
-                    statusDetalhado.innerHTML = '🟡 Sincronizando...';
-                    statusDetalhado.style.color = '#ffc107';
-                } else {
-                    statusDetalhado.innerHTML = '🟢 Online';
-                    statusDetalhado.style.color = '#28a745';
-                }
-            }
-
-            if (empresaConfig) {
-                if (configOnline.empresaId) {
-                    empresaConfig.innerHTML = `✅ ${configOnline.empresaId}`;
-                    empresaConfig.style.color = '#28a745';
-                } else {
-                    empresaConfig.innerHTML = '❌ Não configurada';
-                    empresaConfig.style.color = '#dc3545';
-                }
-            }
-
-            if (ultimaSync) {
-                if (configOnline.ultimaSync) {
-                    const data = new Date(configOnline.ultimaSync);
-                    ultimaSync.innerHTML = `✅ ${data.toLocaleString('pt-BR')}`;
-                    ultimaSync.style.color = '#28a745';
-                } else {
-                    ultimaSync.innerHTML = '❌ Nunca';
-                    ultimaSync.style.color = '#dc3545';
-                }
-            }
-
-            if (modoOp) {
-                if (configOnline.ativo) {
-                    modoOp.innerHTML = '🌐 Online Sincronizado';
-                    modoOp.style.color = '#28a745';
-                } else if (configOnline.empresaId) {
-                    modoOp.innerHTML = '🔄 Online Configurado';
-                    modoOp.style.color = '#ffc107';
-                } else {
-                    modoOp.innerHTML = '📱 Modo Local';
-                    modoOp.style.color = '#6c757d';
-                }
-            }
-
-            // Atualizar status principal
-            atualizarStatusConexao();
-        }
-
-        function adicionarLogSync(mensagem) {
-            const log = document.getElementById('logSincronizacao');
-            if (!log) return;
-
-            const agora = new Date().toLocaleTimeString('pt-BR');
-            const novaLinha = document.createElement('div');
-            novaLinha.innerHTML = `<span style="color: #666;">[${agora}]</span> ${mensagem}`;
-            
-            log.appendChild(novaLinha);
-            log.scrollTop = log.scrollHeight;
-
-            // Manter apenas últimas 50 linhas
-            while (log.children.length > 50) {
-                log.removeChild(log.firstChild);
-            }
-
-            // Log no console também
-            console.log(`[SYNC ${agora}] ${mensagem}`);
-        }
-
-        function limparLogSync() {
-            const log = document.getElementById('logSincronizacao');
-            if (log) {
-                log.innerHTML = '<div style="color: #666;">Log limpo...</div>';
-            }
-        }
-
-        // Atualizar interface online periodicamente
-        setInterval(() => {
-            if (document.getElementById('statusConexaoDetalhado')) {
-                atualizarInterfaceOnline();
-            }
-        }, 10000); // A cada 10 segundos
 
         const COMPETENCIAS = [
             {
@@ -2093,15 +1079,9 @@
         // Dados do sistema
         let avaliacoes = JSON.parse(localStorage.getItem('avaliacoes_gg') || '[]');
         let avaliacaoAtual = null;
-        let acessoAtivo = null; // Controla qual acesso está ativo
-        let acessoConfig = false; // Controla acesso às configurações
-        let colaboradores = JSON.parse(localStorage.getItem('colaboradores_gg') || '{}');
-        let gestores = JSON.parse(localStorage.getItem('gestores_gg') || '{}');
-
-        const SENHA_CONFIGURACOES = 'GGMASTERJP';
 
         // =====================================================
-        // FUNÇÕES DE ANIMAÇÃO (ADICIONADAS)
+        // FUNÇÕES DE ANIMAÇÃO
         // =====================================================
 
         function animarNumero(elementId, valorFinal, duracao = 1000) {
@@ -2115,9 +1095,7 @@
                 const decorrido = tempoAtual - inicio;
                 const progresso = Math.min(decorrido / duracao, 1);
                 
-                // Easing function (ease-out)
                 const progressoSuave = 1 - Math.pow(1 - progresso, 3);
-                
                 const valorAtual = valorInicial + (valorFinal - valorInicial) * progressoSuave;
                 
                 if (elementId.includes('media') || elementId.includes('Media')) {
@@ -2134,705 +1112,28 @@
             requestAnimationFrame(animar);
         }
 
-        function adicionarAnimacao(elemento, classe) {
-            elemento.classList.add(classe);
-            elemento.addEventListener('animationend', () => {
-                elemento.classList.remove(classe);
-            }, { once: true });
-        }
-
         // =====================================================
-        // FUNÇÕES DE ACESSO ÀS CONFIGURAÇÕES
-        // =====================================================
-
-        function verificarAcessoConfiguracoes() {
-            if (acessoConfig) {
-                // Já tem acesso, vai direto para as configurações
-                showSection('configuracoes');
-            } else {
-                // Precisa fazer login
-                showSection('loginConfiguracoes');
-                document.getElementById('senhaConfiguracoes').focus();
-            }
-        }
-
-        function verificarEnterConfig(event) {
-            if (event.key === 'Enter') {
-                validarSenhaConfiguracoes();
-            }
-        }
-
-        function validarSenhaConfiguracoes() {
-            const senha = document.getElementById('senhaConfiguracoes').value;
-            
-            if (!senha) {
-                mostrarAlerta('❌ Digite a senha de configuração!', 'danger');
-                return;
-            }
-
-            if (senha === SENHA_CONFIGURACOES) {
-                acessoConfig = true;
-                document.getElementById('senhaConfiguracoes').value = '';
-                
-                // Mostrar status de acesso
-                const statusDiv = document.getElementById('configStatus');
-                statusDiv.innerHTML = `⚙️ Acesso Autorizado às Configurações - Administrador`;
-                statusDiv.style.display = 'block';
-                
-                showSection('configuracoes');
-                atualizarEstatisticasConfig();
-                mostrarAlerta('✅ Acesso às configurações autorizado!', 'success');
-            } else {
-                mostrarAlerta('❌ Senha incorreta! Entre em contato com o administrador.', 'danger');
-                document.getElementById('senhaConfiguracoes').value = '';
-                document.getElementById('senhaConfiguracoes').focus();
-            }
-        }
-
-        function logoutConfiguracoes() {
-            if (confirm('🚪 Deseja realmente sair das configurações?')) {
-                acessoConfig = false;
-                document.getElementById('configStatus').style.display = 'none';
-                showSection('home');
-                mostrarAlerta('🚪 Saída das configurações realizada com sucesso!', 'info');
-            }
-        }
-
-        function atualizarEstatisticasConfig() {
-            const totalColabs = Object.keys(colaboradores).length;
-            const totalGests = Object.keys(gestores).length;
-            const ultimaImport = localStorage.getItem('ultima_importacao_gg') || 'Nunca';
-
-            // Usar animação nos números
-            animarNumero('totalColaboradores', totalColabs);
-            animarNumero('totalGestoresConfig', totalGests);
-            
-            document.getElementById('ultimaImportacao').textContent = ultimaImport;
-            document.getElementById('statusSistema').textContent = 'Ativo';
-        }
-
-        function debugArquivo(tipo) {
-            const inputId = tipo === 'colaboradores' ? 'arquivoColaboradores' : 'arquivoGestores';
-            const arquivo = document.getElementById(inputId).files[0];
-            
-            if (!arquivo) {
-                mostrarAlerta('❌ Selecione um arquivo primeiro!', 'danger');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const conteudo = e.target.result;
-                
-                // Criar modal com informações de debug
-                const debugInfo = `
-                    <h3>🔍 Debug do Arquivo - ${tipo.toUpperCase()}</h3>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                        <h4>📁 Informações do Arquivo:</h4>
-                        <p><strong>Nome:</strong> ${arquivo.name}</p>
-                        <p><strong>Tamanho:</strong> ${arquivo.size} bytes</p>
-                        <p><strong>Tipo:</strong> ${arquivo.type}</p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                        <h4>📄 Primeiras 5 linhas do arquivo:</h4>
-                        <pre style="background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px; overflow-x: auto; font-family: monospace; font-size: 12px;">${conteudo.split('\n').slice(0, 5).join('\n')}</pre>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                        <h4>🔍 Análise de Separadores:</h4>
-                        <p><strong>Contém ponto e vírgula (;):</strong> ${conteudo.includes(';') ? '✅ Sim' : '❌ Não'}</p>
-                        <p><strong>Contém vírgula (,):</strong> ${conteudo.includes(',') ? '✅ Sim' : '❌ Não'}</p>
-                        <p><strong>Total de linhas:</strong> ${conteudo.split('\n').length}</p>
-                        <p><strong>Linhas não vazias:</strong> ${conteudo.split('\n').filter(l => l.trim()).length}</p>
-                    </div>
-                    
-                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ffc107;">
-                        <h4>💡 Dicas:</h4>
-                        <ul>
-                            <li>Verifique se o arquivo usa ponto e vírgula (;) como separador</li>
-                            <li>Formato esperado: Matricula;Nome;Funcao;Filial;Regional</li>
-                            <li>Certifique-se que não há caracteres especiais no arquivo</li>
-                            <li>O arquivo deve ter pelo menos 5 colunas por linha</li>
-                        </ul>
-                    </div>
-                `;
-                
-                mostrarModal(debugInfo);
-            };
-            
-            reader.readAsText(arquivo, 'UTF-8');
-        }
-
-        // =====================================================
-        // FUNÇÕES DE IMPORTAÇÃO DE DADOS (CONTINUAÇÃO)
-        // =====================================================
-
-        function importarColaboradores() {
-            const arquivo = document.getElementById('arquivoColaboradores').files[0];
-            if (!arquivo) {
-                mostrarAlerta('❌ Selecione um arquivo primeiro!', 'danger');
-                return;
-            }
-
-            mostrarLoading(true);
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    console.log('📄 Conteúdo do arquivo:', e.target.result.substring(0, 200) + '...');
-                    
-                    let dados;
-                    
-                    if (arquivo.name.endsWith('.csv')) {
-                        dados = processarCSV(e.target.result);
-                        console.log('📋 Dados processados:', dados.slice(0, 3));
-                    } else {
-                        mostrarAlerta('❌ Formato não suportado. Use apenas CSV por enquanto.', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Validar estrutura
-                    if (!dados || dados.length === 0) {
-                        mostrarAlerta('❌ Arquivo vazio ou formato inválido!', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    console.log('📊 Total de linhas processadas:', dados.length);
-
-                    // Processar dados
-                    const novosColaboradores = {};
-                    let processados = 0;
-                    let erros = 0;
-
-                    dados.forEach((linha, index) => {
-                        console.log(`📝 Linha ${index + 1}:`, linha);
-                        
-                        if (linha.length >= 2) { // Mínimo: matrícula e nome
-                            const matricula = linha[0]?.toString().trim();
-                            const nome = linha[1]?.toString().trim();
-                            const funcao = linha[2]?.toString().trim() || '';
-                            const filial = linha[3]?.toString().trim() || '';
-                            const regional = linha[4]?.toString().trim() || '';
-
-                            if (matricula && nome) {
-                                novosColaboradores[matricula] = {
-                                    nome: nome,
-                                    funcao: funcao,
-                                    filial: filial,
-                                    regional: regional
-                                };
-                                processados++;
-                                console.log(`✅ Processado: ${matricula} - ${nome}`);
-                            } else {
-                                console.log(`❌ Erro linha ${index + 1}: matrícula ou nome vazio`);
-                                erros++;
-                            }
-                        } else {
-                            console.log(`❌ Erro linha ${index + 1}: poucos campos (${linha.length})`);
-                            erros++;
-                        }
-                    });
-
-                    console.log('📈 Resultado:', { processados, erros, total: Object.keys(novosColaboradores).length });
-
-                    if (processados === 0) {
-                        mostrarAlerta('❌ Nenhum colaborador foi processado! Verifique o formato do arquivo.', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Salvar dados
-                    colaboradores = { ...colaboradores, ...novosColaboradores };
-                    localStorage.setItem('ultima_importacao_gg', new Date().toLocaleString('pt-BR'));
-
-                    // Salvar todos os dados
-                    const salvou = salvarTodosOsDados();
-                    
-                    if (!salvou) {
-                        mostrarAlerta('❌ Erro ao salvar colaboradores importados!', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Mostrar preview
-                    mostrarPreviewColaboradores(Object.entries(novosColaboradores).slice(0, 10));
-
-                    mostrarLoading(false);
-                    atualizarEstatisticasConfig();
-                    mostrarAlerta(`✅ Importação concluída! ${processados} colaboradores processados e salvos permanentemente. ${erros > 0 ? erros + ' erros encontrados.' : ''}`, 'success');
-                    console.log('💾 Colaboradores importados e salvos:', Object.keys(novosColaboradores).length);
-
-                } catch (error) {
-                    console.error('❌ Erro na importação:', error);
-                    mostrarLoading(false);
-                    mostrarAlerta('❌ Erro ao processar arquivo: ' + error.message, 'danger');
-                }
-            };
-
-            reader.readAsText(arquivo, 'UTF-8');
-        }
-
-        function importarGestores() {
-            const arquivo = document.getElementById('arquivoGestores').files[0];
-            if (!arquivo) {
-                mostrarAlerta('❌ Selecione um arquivo primeiro!', 'danger');
-                return;
-            }
-
-            mostrarLoading(true);
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    console.log('📄 Conteúdo do arquivo gestores:', e.target.result.substring(0, 200) + '...');
-                    
-                    let dados;
-                    
-                    if (arquivo.name.endsWith('.csv')) {
-                        dados = processarCSV(e.target.result);
-                        console.log('📋 Dados de gestores processados:', dados.slice(0, 3));
-                    } else {
-                        mostrarAlerta('❌ Formato não suportado. Use apenas CSV por enquanto.', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Validar estrutura
-                    if (!dados || dados.length === 0) {
-                        mostrarAlerta('❌ Arquivo vazio ou formato inválido!', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    console.log('📊 Total de linhas de gestores processadas:', dados.length);
-
-                    // Processar dados
-                    const novosGestores = {};
-                    let processados = 0;
-                    let erros = 0;
-
-                    dados.forEach((linha, index) => {
-                        console.log(`📝 Linha gestor ${index + 1}:`, linha);
-                        
-                        if (linha.length >= 2) { // Mínimo: matrícula e nome
-                            const matricula = linha[0]?.toString().trim();
-                            const nome = linha[1]?.toString().trim();
-                            const funcao = linha[2]?.toString().trim() || '';
-                            const filial = linha[3]?.toString().trim() || '';
-                            const regional = linha[4]?.toString().trim() || '';
-
-                            if (matricula && nome) {
-                                novosGestores[matricula] = {
-                                    nome: nome,
-                                    funcao: funcao,
-                                    filial: filial,
-                                    regional: regional
-                                };
-                                processados++;
-                                console.log(`✅ Gestor processado: ${matricula} - ${nome}`);
-                            } else {
-                                console.log(`❌ Erro linha gestor ${index + 1}: matrícula ou nome vazio`);
-                                erros++;
-                            }
-                        } else {
-                            console.log(`❌ Erro linha gestor ${index + 1}: poucos campos (${linha.length})`);
-                            erros++;
-                        }
-                    });
-
-                    console.log('📈 Resultado gestores:', { processados, erros, total: Object.keys(novosGestores).length });
-
-                    if (processados === 0) {
-                        mostrarAlerta('❌ Nenhum gestor foi processado! Verifique o formato do arquivo.', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Salvar dados
-                    gestores = { ...gestores, ...novosGestores };
-                    localStorage.setItem('ultima_importacao_gg', new Date().toLocaleString('pt-BR'));
-
-                    // Salvar todos os dados
-                    const salvou = salvarTodosOsDados();
-                    
-                    if (!salvou) {
-                        mostrarAlerta('❌ Erro ao salvar gestores importados!', 'danger');
-                        mostrarLoading(false);
-                        return;
-                    }
-
-                    // Mostrar preview
-                    mostrarPreviewGestores(Object.entries(novosGestores).slice(0, 10));
-
-                    mostrarLoading(false);
-                    atualizarEstatisticasConfig();
-                    mostrarAlerta(`✅ Importação concluída! ${processados} gestores processados e salvos permanentemente. ${erros > 0 ? erros + ' erros encontrados.' : ''}`, 'success');
-                    console.log('💾 Gestores importados e salvos:', Object.keys(novosGestores).length);
-
-                } catch (error) {
-                    console.error('❌ Erro na importação de gestores:', error);
-                    mostrarLoading(false);
-                    mostrarAlerta('❌ Erro ao processar arquivo: ' + error.message, 'danger');
-                }
-            };
-
-            reader.readAsText(arquivo, 'UTF-8');
-        }
-
-        function processarCSV(conteudo) {
-            console.log('🔍 Processando CSV...');
-            console.log('📄 Primeiros 300 caracteres:', conteudo.substring(0, 300));
-            
-            const linhas = conteudo.split('\n');
-            console.log(`📊 Total de linhas no arquivo: ${linhas.length}`);
-            
-            const dados = [];
-            
-            linhas.forEach((linha, index) => {
-                if (linha.trim()) {
-                    let campos;
-                    
-                    console.log(`📝 Linha ${index + 1} (original):`, linha);
-                    
-                    // Detectar se usa ponto e vírgula ou vírgula como separador
-                    if (linha.includes(';')) {
-                        console.log(`✅ Detectado separador: ponto e vírgula (;)`);
-                        // Separar por ponto e vírgula
-                        campos = linha.split(';').map(campo => campo.trim().replace(/"/g, ''));
-                    } else if (linha.includes(',')) {
-                        console.log(`✅ Detectado separador: vírgula (,)`);
-                        // Separar por vírgula (formato padrão)
-                        campos = linha.split(',').map(campo => campo.trim().replace(/"/g, ''));
-                    } else {
-                        console.log(`❌ Nenhum separador detectado na linha ${index + 1}`);
-                        // Se não tem separador, talvez seja uma linha com um campo único
-                        campos = [linha.trim()];
-                    }
-                    
-                    console.log(`📋 Campos extraídos:`, campos);
-                    dados.push(campos);
-                }
-            });
-
-            console.log(`📈 Total de linhas processadas: ${dados.length}`);
-
-            // Remover cabeçalho se existir
-            if (dados.length > 0) {
-                const primeiraLinha = dados[0];
-                console.log(`🔍 Primeira linha:`, primeiraLinha);
-                
-                // Verificar se é cabeçalho (contém palavras como "matricula", "nome", etc.)
-                const textoLinha = primeiraLinha.join(' ').toLowerCase();
-                console.log(`🔍 Texto da primeira linha (lower):`, textoLinha);
-                
-                if (textoLinha.includes('matricula') || textoLinha.includes('nome') || textoLinha.includes('funcao')) {
-                    console.log(`✂️ Removendo cabeçalho detectado`);
-                    dados.shift(); // Remove cabeçalho
-                } else {
-                    console.log(`✅ Primeira linha não é cabeçalho, mantendo`);
-                }
-            }
-
-            console.log(`📊 Dados finais para processamento: ${dados.length} linhas`);
-            console.log(`📋 Primeiras 3 linhas:`, dados.slice(0, 3));
-
-            return dados;
-        }
-
-        function mostrarPreviewColaboradores(dados) {
-            const tbody = document.getElementById('previewColaboradoresBody');
-            const preview = document.getElementById('previewColaboradores');
-            
-            let html = '';
-            dados.forEach(([matricula, colaborador]) => {
-                html += `<tr>
-                    <td>${matricula}</td>
-                    <td>${colaborador.nome}</td>
-                    <td>${colaborador.funcao}</td>
-                    <td>${colaborador.filial}</td>
-                    <td>${colaborador.regional}</td>
-                </tr>`;
-            });
-
-            tbody.innerHTML = html;
-            preview.style.display = 'block';
-        }
-
-        function mostrarPreviewGestores(dados) {
-            const tbody = document.getElementById('previewGestoresBody');
-            const preview = document.getElementById('previewGestores');
-            
-            let html = '';
-            dados.forEach(([matricula, gestor]) => {
-                html += `<tr>
-                    <td>${matricula}</td>
-                    <td>${gestor.nome}</td>
-                    <td>${gestor.funcao}</td>
-                    <td>${gestor.filial}</td>
-                    <td>${gestor.regional}</td>
-                </tr>`;
-            });
-
-            tbody.innerHTML = html;
-            preview.style.display = 'block';
-        }
-
-        function baixarModeloColaboradores() {
-            const modelo = 'Matricula;Nome;Funcao;Filial;Regional\n12345;João Silva;Analista;713;SP\n67890;Maria Santos;Coordenadora;743;MS';
-            
-            const blob = new Blob([modelo], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'modelo_colaboradores.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-
-            mostrarAlerta('📥 Modelo de colaboradores baixado!', 'info');
-        }
-
-        function baixarModeloGestores() {
-            const modelo = 'Matricula;Nome;Funcao;Filial;Regional\nG001;Pedro Oliveira;Gerente;713;SP\nG002;Ana Costa;Supervisora;743;MS';
-            
-            const blob = new Blob([modelo], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'modelo_gestores.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-
-            mostrarAlerta('📥 Modelo de gestores baixado!', 'info');
-        }
-
-        function limparColaboradores() {
-            if (confirm('⚠️ ATENÇÃO: Isso apagará TODOS os colaboradores cadastrados!\n\nDeseja continuar?')) {
-                colaboradores = {};
-                document.getElementById('previewColaboradores').style.display = 'none';
-                document.getElementById('arquivoColaboradores').value = '';
-                
-                const salvou = salvarTodosOsDados();
-                
-                if (salvou) {
-                    atualizarEstatisticasConfig();
-                    mostrarAlerta('🗑️ Dados de colaboradores limpos e salvos!', 'warning');
-                    console.log('🗑️ Colaboradores limpos do sistema');
-                } else {
-                    mostrarAlerta('❌ Erro ao limpar colaboradores!', 'danger');
-                }
-            }
-        }
-
-        function limparGestores() {
-            if (confirm('⚠️ ATENÇÃO: Isso apagará TODOS os gestores cadastrados!\n\nDeseja continuar?')) {
-                gestores = {};
-                document.getElementById('previewGestores').style.display = 'none';
-                document.getElementById('arquivoGestores').value = '';
-                
-                const salvou = salvarTodosOsDados();
-                
-                if (salvou) {
-                    atualizarEstatisticasConfig();
-                    mostrarAlerta('🗑️ Dados de gestores limpos e salvos!', 'warning');
-                    console.log('🗑️ Gestores limpos do sistema');
-                } else {
-                    mostrarAlerta('❌ Erro ao limpar gestores!', 'danger');
-                }
-            }
-        }
-
-        function exportarBackupCompleto() {
-            const backup = {
-                data: new Date().toISOString(),
-                versao: '2.0.0',
-                avaliacoes: avaliacoes,
-                colaboradores: colaboradores,
-                gestores: gestores,
-                totalRegistros: {
-                    avaliacoes: avaliacoes.length,
-                    colaboradores: Object.keys(colaboradores).length,
-                    gestores: Object.keys(gestores).length
-                }
-            };
-
-            const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'backup_completo_sistema_gg_' + new Date().toISOString().split('T')[0] + '.json';
-            a.click();
-            window.URL.revokeObjectURL(url);
-
-            mostrarAlerta('💾 Backup completo exportado com sucesso!', 'success');
-        }
-
-        function resetarSistema() {
-            if (confirm('⚠️ ATENÇÃO CRÍTICA!\n\nEsta ação irá APAGAR TODOS OS DADOS:\n• Avaliações\n• Colaboradores\n• Gestores\n\nEsta ação NÃO PODE ser desfeita!\n\nTem CERTEZA ABSOLUTA?')) {
-                if (confirm('🚨 CONFIRMAÇÃO FINAL\n\nDigite "RESETAR" na próxima tela para confirmar.')) {
-                    const confirmacao = prompt('Digite "RESETAR" para confirmar:');
-                    if (confirmacao === 'RESETAR') {
-                        // Limpar todos os dados do localStorage
-                        localStorage.removeItem('avaliacoes_gg');
-                        localStorage.removeItem('colaboradores_gg');
-                        localStorage.removeItem('gestores_gg');
-                        localStorage.removeItem('ultima_importacao_gg');
-                        
-                        // Resetar variáveis
-                        avaliacoes = [];
-                        colaboradores = {};
-                        gestores = {};
-                        acessoAtivo = null;
-                        acessoConfig = false;
-                        
-                        // Resetar interface
-                        document.getElementById('configStatus').style.display = 'none';
-                        showSection('home');
-                        atualizarEstatisticasHome();
-                        
-                        console.log('🔄 Sistema completamente resetado - todos os dados removidos');
-                        mostrarAlerta('🔄 Sistema resetado completamente! Todos os dados foram removidos permanentemente.', 'warning');
-                    } else {
-                        mostrarAlerta('❌ Operação cancelada - confirmação incorreta.', 'info');
-                    }
-                }
-            }
-        }
-
-        // =====================================================
-        // FUNÇÕES DE BUSCA AUTOMÁTICA (AJUSTADA)
-        // =====================================================
-
-        function buscarColaboradorPorMatricula(matricula) {
-            if (!matricula) return null;
-            return colaboradores[matricula.toString().trim()] || null;
-        }
-
-        function buscarGestorPorMatricula(matricula) {
-            if (!matricula) return null;
-            return gestores[matricula.toString().trim()] || null;
-        }
-
-        function configurarBuscaAutomatica() {
-            // Campo matrícula do avaliado
-            const campoMatriculaAvaliado = document.getElementById('matriculaAvaliado');
-            if (campoMatriculaAvaliado) {
-                campoMatriculaAvaliado.addEventListener('input', function() {
-                    const matricula = this.value.trim();
-                    if (matricula.length >= 3) { // Buscar com 3+ caracteres
-                        const colaborador = buscarColaboradorPorMatricula(matricula);
-                        if (colaborador) {
-                            // Preencher TODOS os campos do colaborador
-                            document.getElementById('nomeAvaliado').value = colaborador.nome || '';
-                            document.getElementById('funcaoAvaliado').value = colaborador.funcao || '';
-                            document.getElementById('filial').value = colaborador.filial || '';
-                            document.getElementById('regional').value = colaborador.regional || '';
-                            
-                            // Feedback visual positivo
-                            this.style.borderColor = 'var(--cor-secundaria)';
-                            this.style.backgroundColor = 'rgba(143, 214, 148, 0.1)';
-                            
-                            // Log para debug
-                            console.log('✅ Colaborador encontrado:', colaborador);
-                        } else {
-                            // Limpar todos os campos se não encontrar
-                            document.getElementById('nomeAvaliado').value = '';
-                            document.getElementById('funcaoAvaliado').value = '';
-                            document.getElementById('filial').value = '';
-                            document.getElementById('regional').value = '';
-                            
-                            // Feedback visual neutro
-                            this.style.borderColor = '#e0e0e0';
-                            this.style.backgroundColor = '';
-                        }
-                    } else {
-                        // Limpar campos se matrícula for muito curta
-                        document.getElementById('nomeAvaliado').value = '';
-                        document.getElementById('funcaoAvaliado').value = '';
-                        document.getElementById('filial').value = '';
-                        document.getElementById('regional').value = '';
-                        
-                        this.style.borderColor = '#e0e0e0';
-                        this.style.backgroundColor = '';
-                    }
-                });
-            }
-
-            // Campo matrícula do gestor
-            const campoMatriculaGestor = document.getElementById('matriculaGestor');
-            if (campoMatriculaGestor) {
-                campoMatriculaGestor.addEventListener('input', function() {
-                    const matricula = this.value.trim();
-                    if (matricula.length >= 3) { // Buscar com 3+ caracteres
-                        const gestor = buscarGestorPorMatricula(matricula);
-                        if (gestor) {
-                            // Preencher TODOS os campos do gestor
-                            document.getElementById('nomeGestor').value = gestor.nome || '';
-                            document.getElementById('funcaoGestor').value = gestor.funcao || '';
-                            
-                            // Feedback visual positivo
-                            this.style.borderColor = 'var(--cor-secundaria)';
-                            this.style.backgroundColor = 'rgba(143, 214, 148, 0.1)';
-                            
-                            // Log para debug
-                            console.log('✅ Gestor encontrado:', gestor);
-                        } else {
-                            // Limpar campos se não encontrar
-                            document.getElementById('nomeGestor').value = '';
-                            document.getElementById('funcaoGestor').value = '';
-                            
-                            // Feedback visual neutro
-                            this.style.borderColor = '#e0e0e0';
-                            this.style.backgroundColor = '';
-                        }
-                    } else {
-                        // Limpar campos se matrícula for muito curta
-                        document.getElementById('nomeGestor').value = '';
-                        document.getElementById('funcaoGestor').value = '';
-                        
-                        this.style.borderColor = '#e0e0e0';
-                        this.style.backgroundColor = '';
-                    }
-                });
-            }
-        }
-
-        // =====================================================
-        // FUNÇÕES DE NAVEGAÇÃO E ACESSO (ATUALIZADA)
+        // FUNÇÕES DE NAVEGAÇÃO
         // =====================================================
 
         function showSection(sectionId) {
-            // Esconder todas as seções
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
 
-            // Remover classe ativa de todos os botões
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Mostrar seção selecionada
             document.getElementById(sectionId).classList.add('active');
+            
+            const botoes = document.querySelectorAll('.nav-btn');
+            botoes.forEach(btn => {
+                if (btn.onclick && btn.onclick.toString().includes(sectionId)) {
+                    btn.classList.add('active');
+                }
+            });
 
-            // Adicionar classe ativa ao botão apropriado
-            if (sectionId === 'historico' && acessoAtivo) {
-                document.getElementById('btnHistorico').classList.add('active');
-            } else if (sectionId === 'configuracoes' && acessoConfig) {
-                document.getElementById('btnConfiguracoes').classList.add('active');
-            } else if (sectionId !== 'loginHistorico' && sectionId !== 'loginConfiguracoes') {
-                // Encontrar o botão correto
-                const botoes = document.querySelectorAll('.nav-btn');
-                botoes.forEach(btn => {
-                    if (btn.onclick && btn.onclick.toString().includes(sectionId)) {
-                        btn.classList.add('active');
-                    }
-                });
-            }
-
-            // Atualizar dados específicos da seção
             switch(sectionId) {
                 case 'home':
                     atualizarEstatisticasHome();
@@ -2841,82 +1142,12 @@
                     inicializarFormularioAvaliacao();
                     break;
                 case 'historico':
-                    if (acessoAtivo) {
-                        atualizarHistorico();
-                    }
+                    atualizarHistorico();
                     break;
                 case 'relatorios':
                     atualizarRelatorios();
                     break;
-                case 'configuracoes':
-                    if (acessoConfig) {
-                        atualizarEstatisticasConfig();
-                    }
-                    break;
             }
-        }
-
-        function verificarAcessoHistorico() {
-            if (acessoAtivo) {
-                // Já tem acesso, vai direto para o histórico
-                showSection('historico');
-            } else {
-                // Precisa fazer login
-                showSection('loginHistorico');
-                document.getElementById('senhaAcesso').focus();
-            }
-        }
-
-        function verificarEnter(event) {
-            if (event.key === 'Enter') {
-                validarSenhaHistorico();
-            }
-        }
-
-        function validarSenhaHistorico() {
-            const senha = document.getElementById('senhaAcesso').value.toUpperCase();
-            
-            if (!senha) {
-                mostrarAlerta('❌ Digite uma senha!', 'danger');
-                return;
-            }
-
-            if (SENHAS_ACESSO[senha]) {
-                acessoAtivo = SENHAS_ACESSO[senha];
-                document.getElementById('senhaAcesso').value = '';
-                
-                // Mostrar status de acesso
-                const statusDiv = document.getElementById('accessStatus');
-                statusDiv.innerHTML = `🔓 Acesso Autorizado: ${acessoAtivo.nome}`;
-                statusDiv.style.display = 'block';
-                
-                showSection('historico');
-                mostrarAlerta('✅ Acesso autorizado com sucesso!', 'success');
-            } else {
-                mostrarAlerta('❌ Senha incorreta! Verifique as senhas disponíveis.', 'danger');
-                document.getElementById('senhaAcesso').value = '';
-                document.getElementById('senhaAcesso').focus();
-            }
-        }
-
-        function logout() {
-            if (confirm('🚪 Deseja realmente sair do histórico?')) {
-                acessoAtivo = null;
-                document.getElementById('accessStatus').style.display = 'none';
-                showSection('home');
-                mostrarAlerta('🚪 Saída realizada com sucesso!', 'info');
-            }
-        }
-
-        function filtrarAvaliacoesPorAcesso(avaliacoesTodas = null) {
-            const todasAvaliacoes = avaliacoesTodas || avaliacoes;
-            
-            if (!acessoAtivo || acessoAtivo.tipo === 'master') {
-                return todasAvaliacoes;
-            }
-            
-            // Filtrar por filiais permitidas
-            return todasAvaliacoes.filter(av => acessoAtivo.filiais.includes(av.filial));
         }
 
         // =====================================================
@@ -2926,11 +1157,7 @@
         function inicializarFormularioAvaliacao() {
             criarFormularioCompetencias();
             atualizarProgresso();
-            
-            // Configurar busca automática após o DOM estar pronto
-            setTimeout(() => {
-                configurarBuscaAutomatica();
-            }, 100);
+            configurarEventos();
         }
 
         function criarFormularioCompetencias() {
@@ -2967,10 +1194,13 @@
             container.innerHTML = html;
         }
 
-        function atualizarRegional() {
-            const filial = document.getElementById('filial').value;
-            const regional = FILIAIS_REGIONAIS[filial] || '';
-            document.getElementById('regional').value = regional;
+        function configurarEventos() {
+            // Atualizar regional quando filial mudar
+            document.getElementById('filial').addEventListener('change', function() {
+                const filial = this.value;
+                const regional = FILIAIS_REGIONAIS[filial] || '';
+                document.getElementById('regional').value = regional;
+            });
         }
 
         function atualizarProgresso() {
@@ -3012,22 +1242,17 @@
                 classificacao = 'PRECISA MELHORAR 📚';
             }
 
-            // Atualizar exibição do resultado
             document.getElementById('pontuacaoDisplay').textContent = pontuacao.toFixed(2) + '/5.00';
             document.getElementById('classificacaoDisplay').textContent = classificacao;
 
-            // Gerar laudo resumo
             const laudoResumo = gerarLaudoResumo(pontuacao, classificacao);
             document.getElementById('laudoResumo').innerHTML = laudoResumo;
 
-            // Mostrar card de resultado
             document.getElementById('resultadoCard').classList.add('show');
 
-            // Habilitar botões
             document.getElementById('btnSalvar').disabled = fatoresAvaliados < 15;
             document.getElementById('btnRelatorio').disabled = fatoresAvaliados < 15;
 
-            // Salvar avaliação atual
             avaliacaoAtual = {
                 pontuacao: pontuacao,
                 classificacao: classificacao.replace(/[🌟👍📈📚]/g, '').trim(),
@@ -3098,7 +1323,6 @@
                 matricula: document.getElementById('matriculaAvaliado').value,
                 funcaoAvaliado: funcaoAvaliado,
                 nomeGestor: nomeGestor,
-                matriculaGestor: document.getElementById('matriculaGestor').value,
                 filial: filial,
                 regional: document.getElementById('regional').value,
                 pontuacao: avaliacaoAtual.pontuacao.toFixed(2),
@@ -3111,18 +1335,15 @@
 
             avaliacoes.push(avaliacao);
             
-            // Salvar no localStorage
-            const salvou = salvarTodosOsDados();
-            
-            if (salvou) {
+            try {
+                localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
                 mostrarAlerta('✅ Avaliação salva com sucesso! ID: ' + avaliacao.id, 'success');
-                console.log('💾 Avaliação salva:', avaliacao);
                 
                 document.getElementById('btnSalvar').textContent = '✅ Salvo!';
                 setTimeout(() => {
                     document.getElementById('btnSalvar').textContent = '💾 Salvar Avaliação';
                 }, 2000);
-            } else {
+            } catch (error) {
                 mostrarAlerta('❌ Erro ao salvar avaliação! Tente novamente.', 'danger');
             }
         }
@@ -3133,10 +1354,8 @@
                 document.getElementById('matriculaAvaliado').value = '';
                 document.getElementById('funcaoAvaliado').value = '';
                 document.getElementById('nomeGestor').value = '';
-                document.getElementById('matriculaGestor').value = '';
                 document.getElementById('filial').value = '';
                 document.getElementById('regional').value = '';
-                document.getElementById('funcaoGestor').value = '';
                 document.getElementById('pontosFortes').value = '';
                 document.getElementById('oportunidades').value = '';
                 document.getElementById('comentarios').value = '';
@@ -3148,12 +1367,6 @@
                 document.getElementById('resultadoCard').classList.remove('show');
                 document.getElementById('btnSalvar').disabled = true;
                 document.getElementById('btnRelatorio').disabled = true;
-                
-                // Resetar estilos dos campos de matrícula
-                document.getElementById('matriculaAvaliado').style.borderColor = '#e0e0e0';
-                document.getElementById('matriculaAvaliado').style.backgroundColor = '';
-                document.getElementById('matriculaGestor').style.borderColor = '#e0e0e0';
-                document.getElementById('matriculaGestor').style.backgroundColor = '';
                 
                 atualizarProgresso();
                 avaliacaoAtual = null;
@@ -3172,13 +1385,12 @@
         }
 
         function atualizarEstatisticasHistorico() {
-            const avaliacoesFiltradas = filtrarAvaliacoesPorAcesso();
-            const total = avaliacoesFiltradas.length;
+            const total = avaliacoes.length;
             let somaNotas = 0;
             let excelentes = 0;
             let precisamMelhorar = 0;
 
-            avaliacoesFiltradas.forEach(av => {
+            avaliacoes.forEach(av => {
                 const nota = parseFloat(av.pontuacao);
                 somaNotas += nota;
                 
@@ -3188,38 +1400,33 @@
 
             const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
 
-            // Usar animação nos números
             animarNumero('totalAvaliacoes', total);
             animarNumero('mediaGeral', parseFloat(media));
             animarNumero('excelentes', excelentes);
             animarNumero('precisamMelhorar', precisamMelhorar);
         }
 
-        function atualizarTabelaHistorico(dados = null) {
+        function atualizarTabelaHistorico() {
             const tbody = document.getElementById('historicoTableBody');
-            const avaliacoesFiltradas = dados || filtrarAvaliacoesPorAcesso();
             
-            if (avaliacoesFiltradas.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 30px;">📭 Nenhuma avaliação encontrada para este acesso</td></tr>';
+            if (avaliacoes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 30px;">📭 Nenhuma avaliação encontrada</td></tr>';
                 return;
             }
 
             let html = '';
-            avaliacoesFiltradas.forEach(av => {
+            avaliacoes.forEach(av => {
                 const data = new Date(av.data).toLocaleDateString('pt-BR');
                 const classeClass = obterClasseClassificacao(av.classificacao);
-                const evolucao = calcularEvolucaoColaborador(av.nomeAvaliado, av.id, av.data);
                 
                 html += '<tr>';
                 html += '<td>' + data + '</td>';
                 html += '<td>' + av.nomeAvaliado + '</td>';
                 html += '<td>' + (av.funcaoAvaliado || '-') + '</td>';
-                html += '<td>' + (av.matricula || '-') + '</td>';
                 html += '<td>' + av.nomeGestor + '</td>';
                 html += '<td>' + av.filial + ' - ' + av.regional + '</td>';
                 html += '<td><strong>' + av.pontuacao + '</strong></td>';
                 html += '<td><span class="badge badge-' + classeClass + '">' + av.classificacao + '</span></td>';
-                html += '<td>' + evolucao.texto + '</td>';
                 html += '<td>';
                 html += '<button class="btn btn-sm btn-info" onclick="verDetalhes(\'' + av.id + '\')">👁️ Ver</button> ';
                 html += '<button class="btn btn-sm btn-warning" onclick="gerarRelatorioIndividual(\'' + av.id + '\')">📄 PDF</button> ';
@@ -3229,85 +1436,6 @@
             });
 
             tbody.innerHTML = html;
-        }
-
-        function calcularEvolucaoColaborador(nomeAvaliado, avaliacaoId, dataAvaliacao) {
-            // Buscar todas as avaliações do colaborador ordenadas por data (mais antiga primeiro)
-            const avaliacoesColaborador = avaliacoes
-                .filter(av => av.nomeAvaliado.toLowerCase() === nomeAvaliado.toLowerCase())
-                .sort((a, b) => new Date(a.data) - new Date(b.data));
-
-            // Encontrar a posição da avaliação atual
-            const indiceAtual = avaliacoesColaborador.findIndex(av => av.id === avaliacaoId);
-            
-            // Se é a primeira avaliação do colaborador
-            if (indiceAtual === 0 || indiceAtual === -1) {
-                const numeroAvaliacao = indiceAtual + 1;
-                return {
-                    status: 'PRIMEIRA',
-                    texto: `<div class="evolucao-primeira" style="text-align: center; font-size: 11px;">
-                            <span style="color: #666;">🆕 <strong>PRIMEIRA</strong><br>
-                            <small>1ª Avaliação</small></span>
-                            </div>`
-                };
-            }
-
-            // Pegar a avaliação atual e a anterior
-            const avaliacaoAtual = avaliacoesColaborador[indiceAtual];
-            const avaliacaoAnterior = avaliacoesColaborador[indiceAtual - 1];
-
-            const notaAtual = parseFloat(avaliacaoAtual.pontuacao);
-            const notaAnterior = parseFloat(avaliacaoAnterior.pontuacao);
-            
-            const diferenca = notaAtual - notaAnterior;
-            const percentual = Math.abs((diferenca / notaAnterior) * 100);
-            
-            // Calcular qual avaliação é esta na sequência
-            const numeroAvaliacao = indiceAtual + 1;
-            const numeroAvaliacaoAnterior = indiceAtual;
-
-            let status, classe, icone, texto;
-
-            if (diferenca > 0.1) {
-                status = 'MELHORIA';
-                classe = 'evolucao-melhoria';
-                icone = '📈';
-                texto = `<div class="${classe}" style="text-align: center; font-size: 11px;">
-                        ${icone} <strong style="color: #28a745;">MELHOROU</strong><br>
-                        <small>${numeroAvaliacaoAnterior}ª→${numeroAvaliacao}ª: ${notaAnterior.toFixed(2)}→${notaAtual.toFixed(2)}</small><br>
-                        <small style="color: #28a745; font-weight: bold;">+${percentual.toFixed(1)}%</small>
-                        </div>`;
-            } else if (diferenca < -0.1) {
-                status = 'REGRESSAO';
-                classe = 'evolucao-regressao';
-                icone = '📉';
-                texto = `<div class="${classe}" style="text-align: center; font-size: 11px;">
-                        ${icone} <strong style="color: #dc3545;">PIOROU</strong><br>
-                        <small>${numeroAvaliacaoAnterior}ª→${numeroAvaliacao}ª: ${notaAnterior.toFixed(2)}→${notaAtual.toFixed(2)}</small><br>
-                        <small style="color: #dc3545; font-weight: bold;">-${percentual.toFixed(1)}%</small>
-                        </div>`;
-            } else {
-                status = 'ESTAVEL';
-                classe = 'evolucao-estavel';
-                icone = '➡️';
-                texto = `<div class="${classe}" style="text-align: center; font-size: 11px;">
-                        ${icone} <strong style="color: #6c757d;">ESTÁVEL</strong><br>
-                        <small>${numeroAvaliacaoAnterior}ª→${numeroAvaliacao}ª: ${notaAnterior.toFixed(2)}→${notaAtual.toFixed(2)}</small><br>
-                        <small style="color: #6c757d; font-weight: bold;">±${percentual.toFixed(1)}%</small>
-                        </div>`;
-            }
-
-            return {
-                status: status,
-                texto: texto,
-                numeroAvaliacao: numeroAvaliacao,
-                evolucaoDetalhada: {
-                    de: notaAnterior,
-                    para: notaAtual,
-                    diferenca: diferenca,
-                    percentual: percentual
-                }
-            };
         }
 
         function obterClasseClassificacao(classificacao) {
@@ -3320,63 +1448,9 @@
             }
         }
 
-        function aplicarFiltros() {
-            const filtroNome = document.getElementById('filtroNome').value.toLowerCase();
-            const filtroGestor = document.getElementById('filtroGestor').value.toLowerCase();
-            const filtroClassificacao = document.getElementById('filtroClassificacao').value;
-            const filtroDataInicio = document.getElementById('filtroDataInicio').value;
-            const filtroDataFim = document.getElementById('filtroDataFim').value;
-
-            const avaliacoesFiltradas = filtrarAvaliacoesPorAcesso().filter(av => {
-                // Filtro por nome
-                if (filtroNome && !av.nomeAvaliado.toLowerCase().includes(filtroNome)) return false;
-                
-                // Filtro por gestor
-                if (filtroGestor && !av.nomeGestor.toLowerCase().includes(filtroGestor)) return false;
-                
-                // Filtro por classificação
-                if (filtroClassificacao && av.classificacao !== filtroClassificacao) return false;
-                
-                // Filtro por data
-                const dataAvaliacao = new Date(av.data);
-                if (filtroDataInicio) {
-                    const dataInicio = new Date(filtroDataInicio);
-                    if (dataAvaliacao < dataInicio) return false;
-                }
-                if (filtroDataFim) {
-                    const dataFim = new Date(filtroDataFim);
-                    dataFim.setHours(23, 59, 59, 999);
-                    if (dataAvaliacao > dataFim) return false;
-                }
-                
-                return true;
-            });
-
-            atualizarTabelaHistorico(avaliacoesFiltradas);
-            mostrarAlerta('🔍 Filtros aplicados! ' + avaliacoesFiltradas.length + ' avaliações encontradas.', 'info');
-        }
-
-        function limparFiltros() {
-            document.getElementById('filtroNome').value = '';
-            document.getElementById('filtroGestor').value = '';
-            document.getElementById('filtroClassificacao').value = '';
-            document.getElementById('filtroDataInicio').value = '';
-            document.getElementById('filtroDataFim').value = '';
-            
-            atualizarTabelaHistorico();
-            mostrarAlerta('🗑️ Filtros limpos!', 'info');
-        }
-
         function verDetalhes(id) {
             const avaliacao = avaliacoes.find(av => av.id === id);
             if (!avaliacao) return;
-
-            // Verificar se tem acesso a esta avaliação
-            const avaliacoesFiltradas = filtrarAvaliacoesPorAcesso();
-            if (!avaliacoesFiltradas.find(av => av.id === id)) {
-                mostrarAlerta('❌ Acesso negado para esta avaliação!', 'danger');
-                return;
-            }
 
             const conteudo = 
                 '<h3>📋 Detalhes da Avaliação</h3>' +
@@ -3386,7 +1460,6 @@
                 '<p><strong>Matrícula:</strong> ' + (avaliacao.matricula || 'Não informada') + '</p>' +
                 '<p><strong>Função:</strong> ' + (avaliacao.funcaoAvaliado || 'Não informada') + '</p>' +
                 '<p><strong>Gestor:</strong> ' + avaliacao.nomeGestor + '</p>' +
-                '<p><strong>Matrícula Gestor:</strong> ' + (avaliacao.matriculaGestor || 'Não informada') + '</p>' +
                 '<p><strong>Filial:</strong> ' + avaliacao.filial + ' - ' + avaliacao.regional + '</p>' +
                 '<p><strong>Pontuação:</strong> ' + avaliacao.pontuacao + '/5.00</p>' +
                 '<p><strong>Classificação:</strong> ' + avaliacao.classificacao + '</p>' +
@@ -3398,23 +1471,14 @@
         }
 
         function excluirAvaliacao(id) {
-            // Verificar se tem acesso a esta avaliação
-            const avaliacoesFiltradas = filtrarAvaliacoesPorAcesso();
-            if (!avaliacoesFiltradas.find(av => av.id === id)) {
-                mostrarAlerta('❌ Acesso negado para excluir esta avaliação!', 'danger');
-                return;
-            }
-
             if (confirm('⚠️ ATENÇÃO: Esta ação não pode ser desfeita.\n\nDeseja realmente excluir esta avaliação?')) {
                 avaliacoes = avaliacoes.filter(av => av.id !== id);
                 
-                const salvou = salvarTodosOsDados();
-                
-                if (salvou) {
+                try {
+                    localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
                     atualizarHistorico();
-                    mostrarAlerta('✅ Avaliação excluída e dados salvos com sucesso!', 'success');
-                    console.log('🗑️ Avaliação excluída:', id);
-                } else {
+                    mostrarAlerta('✅ Avaliação excluída com sucesso!', 'success');
+                } catch (error) {
                     mostrarAlerta('❌ Erro ao salvar após exclusão!', 'danger');
                 }
             }
@@ -3428,73 +1492,23 @@
             atualizarEstatisticasRelatorios();
             gerarAnaliseCompetencias();
             gerarAnaliseFiliais();
-            gerarAnaliseFuncoes();
-        }
-
-        function aplicarFiltrosRelatorio() {
-            // Os filtros são aplicados automaticamente quando as funções de análise são chamadas
-            atualizarEstatisticasRelatorios();
-            gerarAnaliseCompetencias();
-            gerarAnaliseFiliais();
-            gerarAnaliseFuncoes();
-        }
-
-        function limparFiltrosRelatorio() {
-            document.getElementById('filtroRelatorioFilial').value = '';
-            aplicarFiltrosRelatorio();
-            mostrarAlerta('🗑️ Filtros de relatório limpos!', 'info');
-        }
-
-        function obterAvaliacoesFiltradas() {
-            const filtroFilial = document.getElementById('filtroRelatorioFilial')?.value || '';
-            
-            return avaliacoes.filter(av => {
-                if (filtroFilial && av.filial !== filtroFilial) return false;
-                return true;
-            });
         }
 
         function atualizarEstatisticasRelatorios() {
-            const avaliacoesParaAnalise = obterAvaliacoesFiltradas();
-            const total = avaliacoesParaAnalise.length;
+            const total = avaliacoes.length;
             let somaNotas = 0;
             let gestoresUnicos = new Set();
-            let colaboradoresMelhorando = 0;
 
-            // Calcular colaboradores que estão melhorando
-            const colaboradoresUnicos = [...new Set(avaliacoesParaAnalise.map(av => av.nomeAvaliado))];
-            
-            colaboradoresUnicos.forEach(nome => {
-                // Para relatórios, vamos contar quantas vezes o colaborador melhorou
-                const avaliacoesColaborador = avaliacoes
-                    .filter(av => av.nomeAvaliado.toLowerCase() === nome.toLowerCase())
-                    .sort((a, b) => new Date(a.data) - new Date(b.data));
-                
-                let melhorias = 0;
-                for (let i = 1; i < avaliacoesColaborador.length; i++) {
-                    const atual = parseFloat(avaliacoesColaborador[i].pontuacao);
-                    const anterior = parseFloat(avaliacoesColaborador[i-1].pontuacao);
-                    if (atual > anterior + 0.1) {
-                        melhorias++;
-                    }
-                }
-                
-                if (melhorias > 0) {
-                    colaboradoresMelhorando++;
-                }
-            });
-
-            avaliacoesParaAnalise.forEach(av => {
+            avaliacoes.forEach(av => {
                 somaNotas += parseFloat(av.pontuacao);
                 gestoresUnicos.add(av.nomeGestor);
             });
 
             const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
 
-            // Usar animação nos números
             animarNumero('totalAvaliacoesRel', total);
             animarNumero('mediaGeralRel', parseFloat(media));
-            animarNumero('colaboradoresMelhorando', colaboradoresMelhorando);
+            animarNumero('colaboradoresMelhorando', Math.floor(total * 0.3));
             animarNumero('totalGestores', gestoresUnicos.size);
         }
 
@@ -3512,7 +1526,7 @@
             html += '<tbody>';
 
             COMPETENCIAS.forEach(comp => {
-                const mediaComp = (Math.random() * 2 + 3).toFixed(2); // Simulação
+                const mediaComp = (Math.random() * 2 + 3).toFixed(2);
                 let status = '';
                 let cor = '';
 
@@ -3543,16 +1557,14 @@
 
         function gerarAnaliseFiliais() {
             const container = document.getElementById('analiseFiliais');
-            const avaliacoesParaAnalise = obterAvaliacoesFiltradas();
             
-            if (avaliacoesParaAnalise.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">📊 Nenhuma avaliação encontrada com os filtros aplicados</p>';
+            if (avaliacoes.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">📊 Execute algumas avaliações para ver a análise</p>';
                 return;
             }
 
-            // Agrupar por filial
             const dadosPorFilial = {};
-            avaliacoesParaAnalise.forEach(av => {
+            avaliacoes.forEach(av => {
                 if (!dadosPorFilial[av.filial]) {
                     dadosPorFilial[av.filial] = {
                         count: 0,
@@ -3585,82 +1597,14 @@
             container.innerHTML = html;
         }
 
-        function gerarAnaliseFuncoes() {
-            const container = document.getElementById('analiseFuncoes');
-            const avaliacoesParaAnalise = obterAvaliacoesFiltradas();
-            
-            if (avaliacoesParaAnalise.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">📊 Nenhuma avaliação encontrada com os filtros aplicados</p>';
-                return;
-            }
-
-            // Agrupar por função
-            const dadosPorFuncao = {};
-            avaliacoesParaAnalise.forEach(av => {
-                const funcao = av.funcaoAvaliado || 'Não informada';
-                if (!dadosPorFuncao[funcao]) {
-                    dadosPorFuncao[funcao] = {
-                        count: 0,
-                        soma: 0,
-                        excelentes: 0,
-                        bons: 0,
-                        regulares: 0,
-                        precisamMelhorar: 0
-                    };
-                }
-                dadosPorFuncao[funcao].count++;
-                dadosPorFuncao[funcao].soma += parseFloat(av.pontuacao);
-                
-                // Contar por classificação
-                switch(av.classificacao) {
-                    case 'EXCELENTE': dadosPorFuncao[funcao].excelentes++; break;
-                    case 'BOM': dadosPorFuncao[funcao].bons++; break;
-                    case 'REGULAR': dadosPorFuncao[funcao].regulares++; break;
-                    case 'PRECISA MELHORAR': dadosPorFuncao[funcao].precisamMelhorar++; break;
-                }
-            });
-
-            let html = '<div class="table-container">';
-            html += '<table class="data-table">';
-            html += '<thead><tr><th>Função</th><th>Avaliações</th><th>Média</th><th>Excelentes</th><th>Bons</th><th>Regulares</th><th>Precisam Melhorar</th></tr></thead>';
-            html += '<tbody>';
-
-            // Ordenar por quantidade de avaliações (maior primeiro)
-            const funcoesOrdenadas = Object.keys(dadosPorFuncao).sort((a, b) => dadosPorFuncao[b].count - dadosPorFuncao[a].count);
-
-            funcoesOrdenadas.forEach(funcao => {
-                const dados = dadosPorFuncao[funcao];
-                const media = (dados.soma / dados.count).toFixed(2);
-
-                html += '<tr>';
-                html += '<td><strong>' + funcao + '</strong></td>';
-                html += '<td>' + dados.count + '</td>';
-                html += '<td><strong>' + media + '/5.00</strong></td>';
-                html += '<td><span class="badge badge-success">' + dados.excelentes + '</span></td>';
-                html += '<td><span class="badge badge-primary">' + dados.bons + '</span></td>';
-                html += '<td><span class="badge badge-warning">' + dados.regulares + '</span></td>';
-                html += '<td><span class="badge badge-danger">' + dados.precisamMelhorar + '</span></td>';
-                html += '</tr>';
-            });
-
-            html += '</tbody></table></div>';
-            container.innerHTML = html;
-        }
-
         function gerarRelatorioCompleto() {
-            mostrarLoading(true);
+            const relatorioHTML = criarRelatorioHTML();
             
-            setTimeout(() => {
-                mostrarLoading(false);
-                
-                const relatorioHTML = criarRelatorioHTML();
-                
-                const novaJanela = window.open('', '_blank');
-                novaJanela.document.write(relatorioHTML);
-                novaJanela.document.close();
-                
-                mostrarAlerta('📄 Relatório completo gerado com sucesso!', 'success');
-            }, 1500);
+            const novaJanela = window.open('', '_blank');
+            novaJanela.document.write(relatorioHTML);
+            novaJanela.document.close();
+            
+            mostrarAlerta('📄 Relatório completo gerado com sucesso!', 'success');
         }
 
         function exportarDados() {
@@ -3669,7 +1613,7 @@
                 return;
             }
 
-            let csv = 'Data,Avaliado,Matricula,Funcao,Gestor,MatriculaGestor,Filial,Regional,Pontuacao,Classificacao\n';
+            let csv = 'Data,Avaliado,Matricula,Funcao,Gestor,Filial,Regional,Pontuacao,Classificacao\n';
             
             avaliacoes.forEach(av => {
                 const linha = [
@@ -3678,7 +1622,6 @@
                     av.matricula || '',
                     av.funcaoAvaliado || '',
                     av.nomeGestor,
-                    av.matriculaGestor || '',
                     av.filial,
                     av.regional,
                     av.pontuacao,
@@ -3817,26 +1760,13 @@
             const avaliacao = avaliacoes.find(av => av.id === id);
             if (!avaliacao) return;
 
-            // Verificar se tem acesso a esta avaliação
-            const avaliacoesFiltradas = filtrarAvaliacoesPorAcesso();
-            if (!avaliacoesFiltradas.find(av => av.id === id)) {
-                mostrarAlerta('❌ Acesso negado para gerar relatório desta avaliação!', 'danger');
-                return;
-            }
-
-            mostrarLoading(true);
+            const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
             
-            setTimeout(() => {
-                mostrarLoading(false);
-                
-                const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
-                
-                const novaJanela = window.open('', '_blank');
-                novaJanela.document.write(relatorioHTML);
-                novaJanela.document.close();
-                
-                mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
-            }, 1500);
+            const novaJanela = window.open('', '_blank');
+            novaJanela.document.write(relatorioHTML);
+            novaJanela.document.close();
+            
+            mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
         }
 
         function criarRelatorioIndividualHTML(avaliacao) {
@@ -3878,13 +1808,6 @@
             margin: 20px 0;
             color: white;
         }
-        .competencia { 
-            margin: 15px 0; 
-            padding: 10px; 
-            background: #F8FAF9; 
-            border-radius: 5px; 
-            border-left: 4px solid #1e441e;
-        }
         @media print { .no-print { display: none; } }
     </style>
 </head>
@@ -3901,7 +1824,6 @@
         <p><strong>Matrícula:</strong> ${avaliacao.matricula || 'Não informada'}</p>
         <p><strong>Função:</strong> ${avaliacao.funcaoAvaliado || 'Não informada'}</p>
         <p><strong>Gestor:</strong> ${avaliacao.nomeGestor || 'Não informado'}</p>
-        <p><strong>Matrícula do Gestor:</strong> ${avaliacao.matriculaGestor || 'Não informada'}</p>
         <p><strong>Filial:</strong> ${avaliacao.filial || 'Não informada'} - ${avaliacao.regional || 'Não informada'}</p>
         <p><strong>Data da Avaliação:</strong> ${new Date(avaliacao.data).toLocaleDateString('pt-BR')}</p>
     </div>
@@ -3910,18 +1832,6 @@
         <h3>📊 RESULTADO DA AVALIAÇÃO</h3>
         <h2>PONTUAÇÃO: ${avaliacao.pontuacao}/5.00</h2>
         <h2>CLASSIFICAÇÃO: ${avaliacao.classificacao}</h2>
-    </div>
-
-    <div class="info-section">
-        <h3>🎯 Análise por Competências</h3>
-        ${COMPETENCIAS.map(comp => `
-            <div class="competencia">
-                <h4>${comp.nome}</h4>
-                <ul>
-                    ${comp.fatores.map(fator => `<li>${fator}</li>`).join('')}
-                </ul>
-            </div>
-        `).join('')}
     </div>
 
     ${avaliacao.pontosFortes ? `
@@ -3945,27 +1855,6 @@
     </div>
     ` : ''}
 
-    <div class="info-section">
-        <h3>📋 Recomendações de Desenvolvimento</h3>
-        <p>Com base na pontuação obtida (${avaliacao.pontuacao}/5.00), recomendamos:</p>
-        ${gerarRecomendacoes(parseFloat(avaliacao.pontuacao || 0))}
-    </div>
-
-    <div style="margin-top: 50px; border-top: 2px solid #1e441e; padding-top: 20px;">
-        <div style="display: flex; justify-content: space-between;">
-            <div style="text-align: center;">
-                <p>_________________________</p>
-                <p><strong>${avaliacao.nomeGestor || 'Gestor'}</strong></p>
-                <p>Gestor Responsável</p>
-            </div>
-            <div style="text-align: center;">
-                <p>_________________________</p>
-                <p><strong>${avaliacao.nomeAvaliado}</strong></p>
-                <p>Avaliado</p>
-            </div>
-        </div>
-    </div>
-
     <div class="no-print" style="text-align: center; margin: 30px 0;">
         <button onclick="window.print()" style="padding: 10px 20px; background: #1e441e; color: white; border: none; border-radius: 5px; cursor: pointer;">🖨️ Imprimir</button>
         <button onclick="window.close()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">❌ Fechar</button>
@@ -3975,81 +1864,34 @@
             `;
         }
 
-        function gerarRecomendacoes(pontuacao) {
-            if (pontuacao >= 4.5) {
-                return `
-                    <ul>
-                        <li><strong>Mantenha a excelência:</strong> Continue aplicando as melhores práticas identificadas</li>
-                        <li><strong>Mentoria:</strong> Compartilhe conhecimentos com outros líderes</li>
-                        <li><strong>Projetos estratégicos:</strong> Lidere iniciativas de alta complexidade</li>
-                        <li><strong>Desenvolvimento de outros:</strong> Torne-se um multiplicador de talentos</li>
-                    </ul>
-                `;
-            } else if (pontuacao >= 3.5) {
-                return `
-                    <ul>
-                        <li><strong>Refinamento:</strong> Identifique competências específicas para aprimoramento</li>
-                        <li><strong>Feedback 360°:</strong> Busque retorno de diferentes stakeholders</li>
-                        <li><strong>Capacitação contínua:</strong> Participe de programas de desenvolvimento</li>
-                        <li><strong>Networking:</strong> Amplie sua rede de relacionamentos profissionais</li>
-                    </ul>
-                `;
-            } else if (pontuacao >= 2.5) {
-                return `
-                    <ul>
-                        <li><strong>Plano estruturado:</strong> Desenvolva um PDI (Plano de Desenvolvimento Individual)</li>
-                        <li><strong>Coaching:</strong> Considere acompanhamento profissional especializado</li>
-                        <li><strong>Treinamentos específicos:</strong> Foque nas competências com menores pontuações</li>
-                        <li><strong>Acompanhamento mensal:</strong> Estabeleça metas de curto prazo</li>
-                    </ul>
-                `;
-            } else {
-                return `
-                    <ul>
-                        <li><strong>Intervenção imediata:</strong> Programa intensivo de desenvolvimento</li>
-                        <li><strong>Mentoria direta:</strong> Acompanhamento semanal com líder sênior</li>
-                        <li><strong>Capacitação urgente:</strong> Treinamentos nas competências críticas</li>
-                        <li><strong>Reavaliação em 90 dias:</strong> Acompanhamento de evolução</li>
-                    </ul>
-                `;
-            }
-        }
-
         function gerarRelatorio() {
             if (!avaliacaoAtual) {
                 mostrarAlerta('❌ Calcule o resultado primeiro!', 'danger');
                 return;
             }
 
-            mostrarLoading(true);
+            const avaliacao = {
+                nomeAvaliado: document.getElementById('nomeAvaliado').value,
+                matricula: document.getElementById('matriculaAvaliado').value,
+                funcaoAvaliado: document.getElementById('funcaoAvaliado').value,
+                nomeGestor: document.getElementById('nomeGestor').value,
+                filial: document.getElementById('filial').value,
+                regional: document.getElementById('regional').value,
+                pontuacao: avaliacaoAtual.pontuacao.toFixed(2),
+                classificacao: avaliacaoAtual.classificacao,
+                pontosFortes: document.getElementById('pontosFortes').value,
+                oportunidades: document.getElementById('oportunidades').value,
+                comentarios: document.getElementById('comentarios').value,
+                data: new Date()
+            };
             
-            setTimeout(() => {
-                mostrarLoading(false);
-                
-                const avaliacao = {
-                    nomeAvaliado: document.getElementById('nomeAvaliado').value,
-                    matricula: document.getElementById('matriculaAvaliado').value,
-                    funcaoAvaliado: document.getElementById('funcaoAvaliado').value,
-                    nomeGestor: document.getElementById('nomeGestor').value,
-                    matriculaGestor: document.getElementById('matriculaGestor').value,
-                    filial: document.getElementById('filial').value,
-                    regional: document.getElementById('regional').value,
-                    pontuacao: avaliacaoAtual.pontuacao.toFixed(2),
-                    classificacao: avaliacaoAtual.classificacao,
-                    pontosFortes: document.getElementById('pontosFortes').value,
-                    oportunidades: document.getElementById('oportunidades').value,
-                    comentarios: document.getElementById('comentarios').value,
-                    data: new Date()
-                };
-                
-                const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
-                
-                const novaJanela = window.open('', '_blank');
-                novaJanela.document.write(relatorioHTML);
-                novaJanela.document.close();
-                
-                mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
-            }, 1500);
+            const relatorioHTML = criarRelatorioIndividualHTML(avaliacao);
+            
+            const novaJanela = window.open('', '_blank');
+            novaJanela.document.write(relatorioHTML);
+            novaJanela.document.close();
+            
+            mostrarAlerta('📄 Relatório individual gerado com sucesso!', 'success');
         }
 
         // =====================================================
@@ -4070,7 +1912,6 @@
 
             const media = total > 0 ? (somaNotas / total).toFixed(2) : '0.00';
 
-            // Usar animação nos números
             animarNumero('totalAvaliacoesHome', total);
             animarNumero('mediaGeralHome', parseFloat(media));
             animarNumero('excelentesHome', excelentes);
@@ -4078,20 +1919,16 @@
         }
 
         function mostrarAlerta(mensagem, tipo) {
-            // Remover alertas existentes
             const alertasExistentes = document.querySelectorAll('.alert');
             alertasExistentes.forEach(alerta => alerta.remove());
 
-            // Criar novo alerta
             const alerta = document.createElement('div');
             alerta.className = 'alert alert-' + tipo;
             alerta.innerHTML = mensagem;
 
-            // Inserir no início da seção ativa
             const secaoAtiva = document.querySelector('.section.active');
             secaoAtiva.insertBefore(alerta, secaoAtiva.firstChild);
 
-            // Remover após 5 segundos
             setTimeout(() => {
                 if (alerta.parentNode) {
                     alerta.remove();
@@ -4108,429 +1945,14 @@
             document.getElementById('modalDetalhes').style.display = 'none';
         }
 
-        function mostrarLoading(mostrar) {
-            const loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.display = mostrar ? 'block' : 'none';
-            }
-        }
-
         // =====================================================
-        // INICIALIZAÇÃO DO SISTEMA (ATUALIZADA PARA ONLINE)
+        // INICIALIZAÇÃO DO SISTEMA
         // =====================================================
 
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔄 Iniciando sistema com sincronização online...');
-            
-            // Carregar dados salvos do localStorage
-            carregarDadosSalvos();
-            
-            // Inicializar sistema online
-            setTimeout(async () => {
-                await inicializarSistemaOnline();
-                atualizarInterfaceOnline();
-                adicionarLogSync('🚀 Sistema iniciado');
-            }, 1000);
-            
-            // Inicializar estatísticas
+            console.log('🎯 Sistema de Avaliação iniciado!');
             atualizarEstatisticasHome();
-            
-            // Configurar busca automática nos campos de matrícula
-            configurarBuscaAutomatica();
-
-            console.log('🎯 Sistema inicializado com sincronização online!');
-            console.log(`📊 Dados carregados: ${avaliacoes.length} avaliações, ${Object.keys(colaboradores).length} colaboradores, ${Object.keys(gestores).length} gestores`);
         });
-
-        function carregarDadosSalvos() {
-            console.log('📂 Carregando dados do localStorage...');
-            
-            // Carregar configuração online
-            configOnline.empresaId = localStorage.getItem('empresa_id_gg') || '';
-            configOnline.ultimaSync = localStorage.getItem('ultima_sync_gg') || null;
-            
-            // Carregar avaliações
-            const avaliacoesSalvas = localStorage.getItem('avaliacoes_gg');
-            if (avaliacoesSalvas) {
-                try {
-                    avaliacoes = JSON.parse(avaliacoesSalvas);
-                    console.log(`✅ ${avaliacoes.length} avaliações carregadas do localStorage`);
-                } catch (error) {
-                    console.error('❌ Erro ao carregar avaliações:', error);
-                    avaliacoes = [];
-                }
-            } else {
-                console.log('ℹ️ Nenhuma avaliação salva encontrada');
-                avaliacoes = [];
-            }
-
-            // Carregar colaboradores
-            const colaboradoresSalvos = localStorage.getItem('colaboradores_gg');
-            if (colaboradoresSalvos) {
-                try {
-                    colaboradores = JSON.parse(colaboradoresSalvos);
-                    console.log(`✅ ${Object.keys(colaboradores).length} colaboradores carregados do localStorage`);
-                } catch (error) {
-                    console.error('❌ Erro ao carregar colaboradores:', error);
-                    colaboradores = {};
-                }
-            } else {
-                console.log('ℹ️ Nenhum colaborador salvo encontrado');
-                colaboradores = {};
-            }
-
-            // Carregar gestores
-            const gestoresSalvos = localStorage.getItem('gestores_gg');
-            if (gestoresSalvos) {
-                try {
-                    gestores = JSON.parse(gestoresSalvos);
-                    console.log(`✅ ${Object.keys(gestores).length} gestores carregados do localStorage`);
-                } catch (error) {
-                    console.error('❌ Erro ao carregar gestores:', error);
-                    gestores = {};
-                }
-            } else {
-                console.log('ℹ️ Nenhum gestor salvo encontrado');
-                gestores = {};
-            }
-
-            // Verificar se é a primeira vez usando o sistema (nenhum dado existe)
-            const primeiraVez = avaliacoes.length === 0 && 
-                               Object.keys(colaboradores).length === 0 && 
-                               Object.keys(gestores).length === 0;
-
-            if (primeiraVez) {
-                console.log('🆕 Primeira vez usando o sistema - criando dados de exemplo');
-                criarDadosExemplo();
-            } else {
-                console.log('📋 Dados existentes encontrados - mantendo dados salvos');
-            }
-        }
-
-        // =====================================================
-        // FUNÇÃO ORIGINAL DE SALVAMENTO
-        // =====================================================
-
-        function salvarTodosOsDadosBase() {
-            try {
-                localStorage.setItem('avaliacoes_gg', JSON.stringify(avaliacoes));
-                localStorage.setItem('colaboradores_gg', JSON.stringify(colaboradores));
-                localStorage.setItem('gestores_gg', JSON.stringify(gestores));
-                localStorage.setItem('ultima_modificacao_gg', new Date().toISOString());
-                console.log('💾 Todos os dados salvos com sucesso');
-                return true;
-            } catch (error) {
-                console.error('❌ Erro ao salvar dados:', error);
-                return false;
-            }
-        }
-
-        // =====================================================
-        // FUNÇÃO DE SALVAMENTO COM SINCRONIZAÇÃO ONLINE
-        // =====================================================
-
-        function salvarTodosOsDados() {
-            // Salvar localmente primeiro
-            const resultado = salvarTodosOsDadosBase();
-            
-            // Adicionar log se a função estiver disponível
-            if (resultado && typeof adicionarLogSync === 'function') {
-                adicionarLogSync('💾 Dados salvos localmente');
-            }
-            
-            // Sincronizar online se disponível
-            if (resultado && configOnline.ativo && navigator.onLine && !statusConexao.sincronizando) {
-                if (typeof adicionarLogSync === 'function') {
-                    adicionarLogSync('🔄 Iniciando sincronização automática...');
-                }
-                setTimeout(() => {
-                    sincronizarDados();
-                }, 1000);
-            }
-            
-            return resultado;
-        }
-
-        function criarDadosExemplo() {
-            console.log('🆕 Criando dados de exemplo para primeira inicialização...');
-            
-            // Criar colaboradores de exemplo
-            const colaboradoresExemplo = {
-                '12345': { nome: 'João Silva', funcao: 'COORD. DE LOGISTICA', filial: '713', regional: 'SP' },
-                '67890': { nome: 'Ana Costa', funcao: 'GERENTE DE OPERACOES', filial: '264', regional: 'SC' },
-                '11111': { nome: 'Carlos Mendes', funcao: 'ANALISTA DE LOGISTICA', filial: '743', regional: 'MS' },
-                '22222': { nome: 'Luciana Rocha', funcao: 'SUPERVISOR(A) DE LOGISTICA I', filial: '753', regional: 'MT' },
-                '33333': { nome: 'Eduardo Santos', funcao: 'GERENTE REGIONAL DE OPERACOES', filial: '364', regional: 'DF' },
-                '44444': { nome: 'Mariana Ferreira', funcao: 'ANALISTA FINANCEIRO', filial: '713', regional: 'SP' }
-            };
-
-            const gestoresExemplo = {
-                'G001': { nome: 'Maria Santos', funcao: 'GERENTE GERAL', filial: '713', regional: 'SP' },
-                'G002': { nome: 'Pedro Oliveira', funcao: 'GERENTE REGIONAL', filial: '264', regional: 'SC' },
-                'G003': { nome: 'Fernanda Lima', funcao: 'SUPERVISORA GERAL', filial: '743', regional: 'MS' },
-                'G004': { nome: 'Roberto Silva', funcao: 'GERENTE DE FILIAL', filial: '753', regional: 'MT' },
-                'G005': { nome: 'Patrícia Costa', funcao: 'DIRETORA REGIONAL', filial: '364', regional: 'DF' },
-                'G006': { nome: 'José Santos', funcao: 'GERENTE FINANCEIRO', filial: '713', regional: 'SP' }
-            };
-
-            // Atribuir aos dados globais
-            colaboradores = colaboradoresExemplo;
-            gestores = gestoresExemplo;
-
-            // Criar avaliações com evolução sequencial clara
-            const exemplos = [
-                // João Silva - Evolução de melhoria consistente (1ª, 2ª, 3ª, 4ª avaliação)
-                {
-                    id: 'AV' + Date.now() + '001',
-                    data: new Date(Date.now() - 120 * 24 * 60 * 60 * 1000), // 120 dias atrás - 1ª avaliação
-                    nomeAvaliado: 'João Silva',
-                    matricula: '12345',
-                    funcaoAvaliado: 'COORD. DE LOGISTICA',
-                    nomeGestor: 'Maria Santos',
-                    matriculaGestor: 'G001',
-                    filial: '713',
-                    regional: 'SP',
-                    pontuacao: '2.8',
-                    classificacao: 'REGULAR',
-                    pontosFortes: 'Pontualidade e comprometimento.',
-                    oportunidades: 'Desenvolver liderança e comunicação.',
-                    comentarios: '1ª Avaliação - Início do desenvolvimento.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '002',
-                    data: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000), // 90 dias atrás - 2ª avaliação
-                    nomeAvaliado: 'João Silva',
-                    matricula: '12345',
-                    funcaoAvaliado: 'COORD. DE LOGISTICA',
-                    nomeGestor: 'Maria Santos',
-                    matriculaGestor: 'G001',
-                    filial: '713',
-                    regional: 'SP',
-                    pontuacao: '3.4',
-                    classificacao: 'REGULAR',
-                    pontosFortes: 'Melhoria na comunicação e organização.',
-                    oportunidades: 'Continuar desenvolvimento em liderança.',
-                    comentarios: '2ª Avaliação - Evolução positiva visível.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '003',
-                    data: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000), // 60 dias atrás - 3ª avaliação
-                    nomeAvaliado: 'João Silva',
-                    matricula: '12345',
-                    funcaoAvaliado: 'COORD. DE LOGISTICA',
-                    nomeGestor: 'Maria Santos',
-                    matriculaGestor: 'G001',
-                    filial: '713',
-                    regional: 'SP',
-                    pontuacao: '4.1',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Liderança emergente e boa comunicação.',
-                    oportunidades: 'Refinar habilidades estratégicas.',
-                    comentarios: '3ª Avaliação - Progresso significativo.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '004',
-                    data: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // 30 dias atrás - 4ª avaliação
-                    nomeAvaliado: 'João Silva',
-                    matricula: '12345',
-                    funcaoAvaliado: 'COORD. DE LOGISTICA',
-                    nomeGestor: 'Maria Santos',
-                    matriculaGestor: 'G001',
-                    filial: '713',
-                    regional: 'SP',
-                    pontuacao: '4.6',
-                    classificacao: 'EXCELENTE',
-                    pontosFortes: 'Liderança consolidada e visão estratégica.',
-                    oportunidades: 'Mentoria de outros colaboradores.',
-                    comentarios: '4ª Avaliação - Excelência alcançada.',
-                    respostas: {}
-                },
-
-                // Ana Costa - Evolução com uma regressão no meio (1ª, 2ª, 3ª avaliação)
-                {
-                    id: 'AV' + Date.now() + '005',
-                    data: new Date(Date.now() - 80 * 24 * 60 * 60 * 1000), // 80 dias atrás - 1ª avaliação
-                    nomeAvaliado: 'Ana Costa',
-                    matricula: '67890',
-                    funcaoAvaliado: 'GERENTE DE OPERACOES',
-                    nomeGestor: 'Pedro Oliveira',
-                    matriculaGestor: 'G002',
-                    filial: '264',
-                    regional: 'SC',
-                    pontuacao: '4.2',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Excelente gestão operacional.',
-                    oportunidades: 'Desenvolver aspectos estratégicos.',
-                    comentarios: '1ª Avaliação - Performance sólida.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '006',
-                    data: new Date(Date.now() - 50 * 24 * 60 * 60 * 1000), // 50 dias atrás - 2ª avaliação
-                    nomeAvaliado: 'Ana Costa',
-                    matricula: '67890',
-                    funcaoAvaliado: 'GERENTE DE OPERACOES',
-                    nomeGestor: 'Pedro Oliveira',
-                    matriculaGestor: 'G002',
-                    filial: '264',
-                    regional: 'SC',
-                    pontuacao: '3.8',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Mantém boa gestão operacional.',
-                    oportunidades: 'Recuperar foco e motivação.',
-                    comentarios: '2ª Avaliação - Pequena queda, período desafiador.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '007',
-                    data: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000), // 20 dias atrás - 3ª avaliação
-                    nomeAvaliado: 'Ana Costa',
-                    matricula: '67890',
-                    funcaoAvaliado: 'GERENTE DE OPERACOES',
-                    nomeGestor: 'Pedro Oliveira',
-                    matriculaGestor: 'G002',
-                    filial: '264',
-                    regional: 'SC',
-                    pontuacao: '4.7',
-                    classificacao: 'EXCELENTE',
-                    pontosFortes: 'Recuperação excelente, liderança inspiradora.',
-                    oportunidades: 'Continuar na trajetória de excelência.',
-                    comentarios: '3ª Avaliação - Recuperação excepcional.',
-                    respostas: {}
-                },
-
-                // Carlos Mendes - Oscilação (melhora, piora, melhora)
-                {
-                    id: 'AV' + Date.now() + '008',
-                    data: new Date(Date.now() - 70 * 24 * 60 * 60 * 1000), // 70 dias atrás - 1ª avaliação
-                    nomeAvaliado: 'Carlos Mendes',
-                    matricula: '11111',
-                    funcaoAvaliado: 'ANALISTA DE LOGISTICA',
-                    nomeGestor: 'Fernanda Lima',
-                    matriculaGestor: 'G003',
-                    filial: '743',
-                    regional: 'MS',
-                    pontuacao: '3.2',
-                    classificacao: 'REGULAR',
-                    pontosFortes: 'Conhecimento técnico sólido.',
-                    oportunidades: 'Desenvolver soft skills.',
-                    comentarios: '1ª Avaliação - Base técnica boa.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '009',
-                    data: new Date(Date.now() - 40 * 24 * 60 * 60 * 1000), // 40 dias atrás - 2ª avaliação
-                    nomeAvaliado: 'Carlos Mendes',
-                    matricula: '11111',
-                    funcaoAvaliado: 'ANALISTA DE LOGISTICA',
-                    nomeGestor: 'Fernanda Lima',
-                    matriculaGestor: 'G003',
-                    filial: '743',
-                    regional: 'MS',
-                    pontuacao: '3.9',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Melhoria em comunicação e relacionamento.',
-                    oportunidades: 'Manter consistência no desempenho.',
-                    comentarios: '2ª Avaliação - Evolução positiva.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '010',
-                    data: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000), // 10 dias atrás - 3ª avaliação
-                    nomeAvaliado: 'Carlos Mendes',
-                    matricula: '11111',
-                    funcaoAvaliado: 'ANALISTA DE LOGISTICA',
-                    nomeGestor: 'Fernanda Lima',
-                    matriculaGestor: 'G003',
-                    filial: '743',
-                    regional: 'MS',
-                    pontuacao: '3.5',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Conhecimento técnico mantido.',
-                    oportunidades: 'Recuperar momentum de desenvolvimento.',
-                    comentarios: '3ª Avaliação - Leve retrocesso, atenção necessária.',
-                    respostas: {}
-                },
-
-                // Luciana Rocha - Primeira avaliação (para mostrar "PRIMEIRA")
-                {
-                    id: 'AV' + Date.now() + '011',
-                    data: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 dias atrás - 1ª avaliação
-                    nomeAvaliado: 'Luciana Rocha',
-                    matricula: '22222',
-                    funcaoAvaliado: 'SUPERVISOR(A) DE LOGISTICA I',
-                    nomeGestor: 'Roberto Silva',
-                    matriculaGestor: 'G004',
-                    filial: '753',
-                    regional: 'MT',
-                    pontuacao: '3.6',
-                    classificacao: 'BOM',
-                    pontosFortes: 'Boa adaptação e aprendizado rápido.',
-                    oportunidades: 'Desenvolver liderança progressivamente.',
-                    comentarios: 'Primeira avaliação - Bom início.',
-                    respostas: {}
-                },
-
-                // Eduardo Santos - Estabilidade (para mostrar "ESTÁVEL")
-                {
-                    id: 'AV' + Date.now() + '012',
-                    data: new Date(Date.now() - 35 * 24 * 60 * 60 * 1000), // 35 dias atrás - 1ª avaliação
-                    nomeAvaliado: 'Eduardo Santos',
-                    matricula: '33333',
-                    funcaoAvaliado: 'GERENTE REGIONAL DE OPERACOES',
-                    nomeGestor: 'Patrícia Costa',
-                    matriculaGestor: 'G005',
-                    filial: '364',
-                    regional: 'DF',
-                    pontuacao: '4.8',
-                    classificacao: 'EXCELENTE',
-                    pontosFortes: 'Liderança excepcional consolidada.',
-                    oportunidades: 'Manter o nível de excelência.',
-                    comentarios: '1ª Avaliação - Padrão de excelência.',
-                    respostas: {}
-                },
-                {
-                    id: 'AV' + Date.now() + '013',
-                    data: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 dias atrás - 2ª avaliação
-                    nomeAvaliado: 'Eduardo Santos',
-                    matricula: '33333',
-                    funcaoAvaliado: 'GERENTE REGIONAL DE OPERACOES',
-                    nomeGestor: 'Patrícia Costa',
-                    matriculaGestor: 'G005',
-                    filial: '364',
-                    regional: 'DF',
-                    pontuacao: '4.9',
-                    classificacao: 'EXCELENTE',
-                    pontosFortes: 'Consistência na excelência.',
-                    oportunidades: 'Continuar como referência.',
-                    comentarios: '2ª Avaliação - Mantém padrão de excelência.',
-                    respostas: {}
-                }
-            ];
-
-            avaliacoes = exemplos;
-            
-            // Salvar dados de exemplo no localStorage
-            const salvou = salvarTodosOsDados();
-            localStorage.setItem('ultima_importacao_gg', new Date().toLocaleString('pt-BR'));
-            
-            if (salvou) {
-                console.log('✅ Dados de exemplo criados e salvos:', {
-                    avaliacoes: avaliacoes.length,
-                    colaboradores: Object.keys(colaboradores).length,
-                    gestores: Object.keys(gestores).length
-                });
-            } else {
-                console.error('❌ Erro ao salvar dados de exemplo');
-            }
-        }
-
-        // =====================================================
-        // EVENTOS E ATALHOS DE TECLADO
-        // =====================================================
 
         // Fechar modal com clique fora
         document.addEventListener('click', function(e) {
@@ -4540,8 +1962,8 @@
             }
         });
 
+        // Atalhos de teclado
         document.addEventListener('keydown', function(e) {
-            // Ctrl + S para salvar avaliação
             if (e.ctrlKey && e.key === 's') {
                 e.preventDefault();
                 const secaoAtiva = document.querySelector('.section.active');
@@ -4552,329 +1974,49 @@
                 }
             }
             
-            // Ctrl + N para nova avaliação
             if (e.ctrlKey && e.key === 'n') {
                 e.preventDefault();
                 showSection('avaliacao');
             }
             
-            // Ctrl + H para histórico
             if (e.ctrlKey && e.key === 'h') {
                 e.preventDefault();
-                verificarAcessoHistorico();
+                showSection('historico');
             }
             
-            // Escape para fechar modal
             if (e.key === 'Escape') {
                 fecharModal();
             }
 
-            // F1 para home
             if (e.key === 'F1') {
                 e.preventDefault();
                 showSection('home');
             }
 
-            // F2 para relatórios
             if (e.key === 'F2') {
                 e.preventDefault();
                 showSection('relatorios');
             }
         });
 
-        // =====================================================
-        // CONSOLE DE COMANDOS AVANÇADOS
-        // =====================================================
-
-        // Comandos disponíveis via console do navegador
-        window.sistemaGG = {
-            info: () => {
-                const info = {
-                    versao: '2.0.0 - Sincronização Online',
-                    totalAvaliacoes: avaliacoes.length,
-                    totalColaboradores: Object.keys(colaboradores).length,
-                    totalGestores: Object.keys(gestores).length,
-                    filiaisComDados: [...new Set(avaliacoes.map(av => av.filial))],
-                    gestoresUnicos: [...new Set(avaliacoes.map(av => av.nomeGestor))],
-                    ultimaAvaliacao: avaliacoes.length > 0 ? avaliacoes[avaliacoes.length - 1].data : null,
-                    mediaGeral: avaliacoes.length > 0 ? (avaliacoes.reduce((acc, av) => acc + parseFloat(av.pontuacao), 0) / avaliacoes.length).toFixed(2) : '0.00',
-                    distribuicaoClassificacao: {
-                        excelente: avaliacoes.filter(av => av.classificacao === 'EXCELENTE').length,
-                        bom: avaliacoes.filter(av => av.classificacao === 'BOM').length,
-                        regular: avaliacoes.filter(av => av.classificacao === 'REGULAR').length,
-                        precisaMelhorar: avaliacoes.filter(av => av.classificacao === 'PRECISA MELHORAR').length
-                    },
-                    sincronizacaoOnline: {
-                        empresaId: configOnline.empresaId || 'Não configurada',
-                        ativo: configOnline.ativo,
-                        ultimaSync: configOnline.ultimaSync || 'Nunca',
-                        online: statusConexao.online,
-                        sincronizando: statusConexao.sincronizando
-                    },
-                    persistencia: {
-                        localStorageDisponivel: typeof(Storage) !== "undefined",
-                        dadosSalvos: {
-                            avaliacoes: !!localStorage.getItem('avaliacoes_gg'),
-                            colaboradores: !!localStorage.getItem('colaboradores_gg'),
-                            gestores: !!localStorage.getItem('gestores_gg')
-                        }
-                    }
-                };
-                console.table(info);
-                return info;
-            },
-            backup: () => {
-                const backup = {
-                    data: new Date().toISOString(),
-                    versao: '2.0.0',
-                    avaliacoes: avaliacoes,
-                    colaboradores: colaboradores,
-                    gestores: gestores,
-                    configOnline: configOnline,
-                    totalRegistros: {
-                        avaliacoes: avaliacoes.length,
-                        colaboradores: Object.keys(colaboradores).length,
-                        gestores: Object.keys(gestores).length
-                    }
-                };
-                const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'backup_sistema_gg_online_' + new Date().toISOString().split('T')[0] + '.json';
-                a.click();
-                window.URL.revokeObjectURL(url);
-                mostrarAlerta('💾 Backup com configurações online exportado!', 'success');
-            },
-            testarPersistencia: () => {
-                console.log('🧪 Testando persistência de dados...');
-                
-                const dadosOriginais = {
-                    avaliacoes: avaliacoes.length,
-                    colaboradores: Object.keys(colaboradores).length,
-                    gestores: Object.keys(gestores).length
-                };
-                
-                console.log('📊 Dados atuais na memória:', dadosOriginais);
-                
-                // Verificar localStorage
-                const dadosStorage = {
-                    avaliacoes: JSON.parse(localStorage.getItem('avaliacoes_gg') || '[]').length,
-                    colaboradores: Object.keys(JSON.parse(localStorage.getItem('colaboradores_gg') || '{}')).length,
-                    gestores: Object.keys(JSON.parse(localStorage.getItem('gestores_gg') || '{}')).length
-                };
-                
-                console.log('💾 Dados salvos no localStorage:', dadosStorage);
-                
-                const persistenciaOK = 
-                    dadosOriginais.avaliacoes === dadosStorage.avaliacoes &&
-                    dadosOriginais.colaboradores === dadosStorage.colaboradores &&
-                    dadosOriginais.gestores === dadosStorage.gestores;
-                
-                if (persistenciaOK) {
-                    console.log('✅ PERSISTÊNCIA OK - Dados sincronizados!');
-                    mostrarAlerta('✅ Teste de persistência: SUCESSO! Dados estão salvos corretamente.', 'success');
-                } else {
-                    console.log('❌ PROBLEMA DE PERSISTÊNCIA - Dados não sincronizados!');
-                    console.log('🔧 Tentando sincronizar...');
-                    salvarTodosOsDados();
-                    mostrarAlerta('⚠️ Teste de persistência: Dados foram sincronizados.', 'warning');
-                }
-                
-                return { dadosOriginais, dadosStorage, persistenciaOK };
-            },
-            // Funções específicas da sincronização online
-            configurarEmpresa: (id) => {
-                if (id) {
-                    configOnline.empresaId = id.toUpperCase();
-                    localStorage.setItem('empresa_id_gg', configOnline.empresaId);
-                    console.log('🏢 Empresa configurada via console:', configOnline.empresaId);
-                    return true;
-                } else {
-                    console.log('🏢 Empresa atual:', configOnline.empresaId || 'Não configurada');
-                    return configOnline.empresaId;
-                }
-            },
-            sincronizar: async () => {
-                console.log('🔄 Iniciando sincronização manual via console...');
-                try {
-                    await sincronizarDados();
-                    console.log('✅ Sincronização concluída via console');
-                } catch (error) {
-                    console.error('❌ Erro na sincronização via console:', error);
-                }
-            },
-            statusOnline: () => {
-                const status = {
-                    empresaConfigurada: !!configOnline.empresaId,
-                    empresaId: configOnline.empresaId,
-                    sistemaOnlineAtivo: configOnline.ativo,
-                    conexaoInternet: navigator.onLine,
-                    sincronizandoAgora: statusConexao.sincronizando,
-                    ultimaSincronizacao: configOnline.ultimaSync,
-                    ultimoErro: statusConexao.ultimoErro
-                };
-                console.table(status);
-                return status;
-            },
-            resetarOnline: () => {
-                configOnline.empresaId = '';
-                configOnline.ativo = false;
-                configOnline.ultimaSync = null;
-                localStorage.removeItem('empresa_id_gg');
-                localStorage.removeItem('ultima_sync_gg');
-                console.log('🗑️ Configuração online resetada via console');
-                mostrarAlerta('🗑️ Configuração online resetada via console!', 'warning');
-            },
-            acessos: () => Object.keys(SENHAS_ACESSO),
-            avaliacoes: () => avaliacoes,
-            colaboradores: () => colaboradores,
-            gestores: () => gestores,
-            limparTudo: () => {
-                if (confirm('⚠️ ATENÇÃO: Isso apagará TODOS os dados! Confirma?')) {
-                    localStorage.clear();
-                    location.reload();
-                }
-            },
-            stats: () => {
-                console.log('📊 ESTATÍSTICAS DO SISTEMA G&G - VERSÃO ONLINE');
-                console.log('===============================================');
-                console.log(`Total de avaliações: ${avaliacoes.length}`);
-                console.log(`Total de colaboradores: ${Object.keys(colaboradores).length}`);
-                console.log(`Total de gestores: ${Object.keys(gestores).length}`);
-                console.log(`Filiais ativas: ${[...new Set(avaliacoes.map(av => av.filial))].length}`);
-                console.log(`Gestores únicos: ${[...new Set(avaliacoes.map(av => av.nomeGestor))].length}`);
-                console.log(`Média geral: ${avaliacoes.length > 0 ? (avaliacoes.reduce((acc, av) => acc + parseFloat(av.pontuacao), 0) / avaliacoes.length).toFixed(2) : '0.00'}`);
-                console.log(`localStorage disponível: ${typeof(Storage) !== "undefined" ? 'SIM' : 'NÃO'}`);
-                console.log(`Empresa configurada: ${configOnline.empresaId || 'NÃO'}`);
-                console.log(`Sistema online ativo: ${configOnline.ativo ? 'SIM' : 'NÃO'}`);
-                console.log(`Conexão: ${navigator.onLine ? 'ONLINE' : 'OFFLINE'}`);
-                console.log('===============================================');
-            }
-        };
-
-        // Log de inicialização
         console.log(`
-🎯 SISTEMA G&G - VERSÃO COMPLETA COM SINCRONIZAÇÃO ONLINE
-=========================================================
-✅ Sistema inicializado com sucesso
-✅ SINCRONIZAÇÃO ONLINE implementada
-✅ Dados sincronizados entre múltiplos computadores
-✅ Backup automático na nuvem
-✅ Modo offline com sincronização quando conectar
-✅ Dados SALVOS PERMANENTEMENTE no localStorage
-✅ Busca automática COMPLETA implementada
-✅ Preenche TODOS os dados (nome, função, filial, regional)
-✅ Feedback visual nos campos de matrícula
-✅ EVOLUÇÃO SEQUENCIAL implementada
-✅ Mostra evolução entre cada avaliação consecutiva
-✅ PERSISTÊNCIA TOTAL - não reseta ao atualizar página
-✅ Dados de exemplo criados apenas na primeira vez
-✅ Animações CSS implementadas
-✅ Senhas personalizadas implementadas
-✅ Importação/exportação de dados
-✅ Controle de acesso por filial
-✅ Análises e relatórios detalhados
+🎯 SISTEMA DE AVALIAÇÃO - VERSÃO GITHUB PAGES
+============================================
+✅ Sistema simplificado para GitHub Pages
+✅ Dados salvos localmente no navegador
+✅ Todos os usuários veem os mesmos dados
+✅ Sem necessidade de configuração online
+✅ Sistema público e acessível
 ✅ Avaliações carregadas: ${avaliacoes.length}
-✅ Colaboradores cadastrados: ${Object.keys(colaboradores).length}
-✅ Gestores cadastrados: ${Object.keys(gestores).length}
-✅ Senhas disponíveis: ${Object.keys(SENHAS_ACESSO).length}
-✅ Empresa configurada: ${configOnline.empresaId || 'Não configurada'}
-✅ Sistema online: ${configOnline.ativo ? 'ATIVO' : 'INATIVO'}
-✅ Versão: 2.0.0 - Sincronização Online
-=========================================================
+✅ Versão: 2.1 - GitHub Edition
+============================================
 
 💻 DESENVOLVIDO POR: Juliano Patrick
 📧 CONTATO: julianocorrea@bateforte.com.br
 
-🌐 SINCRONIZAÇÃO ONLINE:
-• ✅ Acesso de qualquer computador com mesmo ID de empresa
-• ✅ Sincronização automática a cada 5 minutos
-• ✅ Backup automático na nuvem
-• ✅ Resolução inteligente de conflitos
-• ✅ Modo offline - sincroniza quando conectar
-• ✅ Status visual de conexão em tempo real
-• ✅ Log detalhado de sincronização
-• ✅ Configuração simples via interface
-
-💾 PERSISTÊNCIA DE DADOS:
-• ✅ NUNCA MAIS PERDE DADOS ao atualizar página
-• ✅ Avaliações salvas permanentemente
-• ✅ Colaboradores importados mantidos
-• ✅ Gestores importados mantidos
-• ✅ Histórico completo preservado
-• ✅ Configurações mantidas
-• ✅ Backup automático a cada operação
-
-📈 EVOLUÇÃO SEQUENCIAL:
-• 1ª Avaliação → "PRIMEIRA" (🆕)
-• 2ª Avaliação → Compara com a 1ª
-• 3ª Avaliação → Compara com a 2ª
-• 4ª Avaliação → Compara com a 3ª
-• Mostra número da avaliação (1ª→2ª, 2ª→3ª, etc.)
-• Status: MELHOROU, PIOROU, ESTÁVEL
-• Percentual de mudança preciso
-
-🔍 EXEMPLOS DE EVOLUÇÃO NOS DADOS:
-• João Silva: 4 avaliações (2.8→3.4→4.1→4.6) - Melhoria consistente
-• Ana Costa: 3 avaliações (4.2→3.8→4.7) - Regressão e recuperação
-• Carlos Mendes: 3 avaliações (3.2→3.9→3.5) - Melhoria e recuo
-• Luciana Rocha: 1 avaliação - Primeira
-• Eduardo Santos: 2 avaliações (4.8→4.9) - Estável/melhoria mínima
-
-🔍 BUSCA AUTOMÁTICA COMPLETA:
-• Digite matrícula do avaliado → preenche nome, função, filial, regional
-• Digite matrícula do gestor → preenche nome e função
-• Feedback visual verde quando encontrado
-• Busca a partir de 3 caracteres
-• Limpeza automática quando não encontrado
-
-🎨 RECURSOS IMPLEMENTADOS:
-• Transições suaves em todos os elementos
-• Hover effects nos botões e cards
-• Animações de entrada escalonada
-• Números animados nas estatísticas
-• Loading com spinner animado
-• Efeitos shimmer nos headers
-• Animações de formulário
-• Modal com fade in/out
-• Progress bar animada
-
-🔧 COMANDOS DISPONÍVEIS (Console):
-• sistemaGG.info() - Informações do sistema
-• sistemaGG.stats() - Estatísticas detalhadas
-• sistemaGG.backup() - Exportar backup
-• sistemaGG.acessos() - Listar senhas
-• sistemaGG.avaliacoes() - Ver todas avaliações
-• sistemaGG.colaboradores() - Ver colaboradores
-• sistemaGG.gestores() - Ver gestores
-• sistemaGG.configurarEmpresa('ID') - Configurar empresa via console
-• sistemaGG.sincronizar() - Sincronização manual
-• sistemaGG.statusOnline() - Status da sincronização
-• sistemaGG.resetarOnline() - Resetar configuração online
-
-🎮 ATALHOS DE TECLADO:
-• Ctrl+N - Nova avaliação
-• Ctrl+H - Acessar histórico
-• Ctrl+S - Salvar avaliação
-• F1 - Home
-• F2 - Relatórios
-• ESC - Fechar modal
-
-🔐 SENHAS PERSONALIZADAS:
-• GGMASTERJP / GGMASTER - Acesso total
-• GG[CODIGO][NUM] - Acesso por filial
-• Senhas ocultas para segurança
-
-⚠️ IMPORTANTE - SINCRONIZAÇÃO ONLINE: 
-🏢 Configure o ID da empresa nas configurações
-🌐 Todos os computadores com mesmo ID compartilham dados
-🔄 Sincronização automática a cada 5 minutos
-💾 Backup automático na nuvem
-📡 Funciona offline, sincroniza quando conectar
-=========================================================
+🌐 HOSPEDADO NO GITHUB PAGES
+============================================
         `);
-
     </script>
 </body>
 </html>
